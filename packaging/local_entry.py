@@ -11,5 +11,5 @@ if __name__ == '__main__':
             raise
         import ctypes
         message = str(error) if isinstance(error, (ValueError, PermissionError)) else type(error).__name__
-        ctypes.windll.user32.MessageBoxW(None,'超维成长未能启动：'+message+'\n请保留原数据目录，并查看随包使用指南。','超维成长',0x10)
+        ctypes.windll.user32.MessageBoxW(None,'超维伴学未能启动：'+message+'\n请保留原数据目录，并查看随包使用指南。','超维伴学',0x10)
         sys.exit(1)

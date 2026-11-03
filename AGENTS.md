@@ -1,5 +1,7 @@
 # Hyper Evolution development contract
 
+Product name: **超维伴学 Hyper Evolution**. Enlighter, Evolver and Self-Evolver are the three experiences. Branding changes affect display text and documentation; retain existing technical IDs, signed protocol namespaces and data directories for compatibility. The public static download/tutorial portal source is in `site/`.
+
 Preserve the three layers in `src/base/app/companion/`: `aesthetic` owns professional judgment and Policy Packs; `functional` owns capabilities, authorization, Agent/Skill/Workflow and execution; `assets` owns references, versions and provenance. Read `docs/architecture.md` before changes.
 
 All new web, MCP and Agent operations use `LocalRuntime.invoke_capability`. Preserve v1-v11 contracts, runtime role checks, subject-specific physical workspaces and signed peer messages. Enlighter is teacher; Evolver and Self-Evolver are student identities. Experience selection never grants teacher privileges. AI suggestions remain editable suggestions; teacher publication is explicit.
