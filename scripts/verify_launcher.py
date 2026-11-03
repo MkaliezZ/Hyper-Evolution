@@ -23,10 +23,10 @@ def main():
     args=['cmd.exe','/d','/c','call',str(source/'启动-Self-Evolver.cmd'),'--no-browser','--data',str(folder)]
     process=subprocess.Popen(args,cwd=source,env=environment,stdout=log,stderr=log,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
     try:
-        deadline=time.monotonic()+300
+        deadline=time.monotonic()+900
         while not (folder/'qa-launch-url.txt').exists():
             assert process.poll() is None,'Launcher exited; inspect private verification log'
-            assert time.monotonic()<deadline,'Installer did not become ready within 300s'
+            assert time.monotonic()<deadline,'Installer did not become ready within 900s'
             time.sleep(.5)
         assert (source/'.runtime/Scripts/python.exe').is_file()
         actual=(source/'.runtime/hyper-evolution-lock.txt').read_text().strip().lower()

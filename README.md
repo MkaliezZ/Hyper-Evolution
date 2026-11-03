@@ -28,6 +28,8 @@ Local-first learning for teachers, students and self-learners — with a browser
 4. 进入“连接与设置 → 模型与本机设置”，填写服务商、接口地址、模型名称和自己的 API Key，点击连接测试。
 5. 老师先连接一位学生并布置任务；学生打开“我的任务”；自学者先导入一段短资料，完成一次阅读和练习。
 
+第一次打开会先下载运行环境，耗时随网络速度变化；保留启动窗口，准备完成后浏览器会自动打开。以后再启动会直接使用已准备好的环境。
+
 也可以先完成身份设置，浏览原创示例，再配置模型。连接测试会向所选服务商发送一次小请求，使用该账户的 API 额度。
 
 第一次使用可跟着这几份教程走：[安装与 API 配置](docs/getting-started.md) · [教师版](docs/enlighter.md) · [学生版](docs/evolver.md) · [自学版](docs/self-evolver.md)。工作台的“使用指南”里还有按按钮展开的操作说明。
