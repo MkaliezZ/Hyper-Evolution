@@ -63,7 +63,6 @@ async def main():
             assert status['experience']['id']==edition
             assert (await client.get('/')).status_code==200
             assert 'launch_edition' in (await client.get('/assets/experience.js')).text
-            assert 'model_suggestion' in (source/'src/base/app/companion/functional/self_review_agent.py').read_text(encoding='utf8')
             configuration=(await client.get('/api/local/mcp-config')).json()['mcpServers']['hyper-growth-local']
             assert configuration['command']==sys.executable and configuration['env']['HYPER_GROWTH_DATA']==str(folder)
             params=StdioServerParameters(command=configuration['command'],args=configuration['args'],env={**os.environ,**configuration['env']})

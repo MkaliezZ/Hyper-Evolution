@@ -14,7 +14,7 @@ def collect():
     paths=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')
     for name in filter(None,paths):
         p=Path(name)
-        if name in ALLOWED_ROOT or name.startswith(('src/','docs/','examples/','third_party/','scripts/','packaging/')):
+        if name in ALLOWED_ROOT or name.startswith(('src/','docs/','examples/','third_party/','scripts/','packaging/','tests/')):
             if p.name.startswith('.') or p.suffix.lower() in {'.sqlite','.sqlite3','.db','.hgb','.log','.zip','.exe','.dll','.pdf','.mp3','.wav'}:
                 raise ValueError('Unexpected release file: '+name)
             yield name
