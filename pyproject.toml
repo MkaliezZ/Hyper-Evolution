@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hyper-evolution"
-version = "0.6.0rc1"
+version = "0.6.0rc2"
 description = "Hyper Evolution: local-first learning for teachers, students and self-learners"
 license = "MIT"
 readme = "README.md"

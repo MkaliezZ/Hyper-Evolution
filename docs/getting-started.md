@@ -28,7 +28,7 @@
 
 关闭浏览器页面后，本机服务会继续运行。准备退出或升级时，在设置中选择“保存并退出服务”。
 
-三个包的默认数据目录分别是 `%LOCALAPPDATA%/HyperEvolution/Enlighter/data`、`%LOCALAPPDATA%/HyperEvolution/Evolver/data` 和 `%LOCALAPPDATA%/HyperEvolution/Self-Evolver/data`。实际位置可在设置中查看。旧超维成长用户可以通过 `--data` 继续使用原目录；请先在原版本创建加密恢复包。
+三个包的默认数据目录分别是 `%LOCALAPPDATA%/HyperEvolution/Enlighter/data`、`%LOCALAPPDATA%/HyperEvolution/Evolver/data` 和 `%LOCALAPPDATA%/HyperEvolution/Self-Evolver/data`。实际位置可在设置中查看。旧超维伴学用户可以通过 `--data` 继续使用原目录；请先在原版本创建加密恢复包。
 
 升级时退出旧服务，再解压新程序。数据目录单独保存。换电脑前，在设置里创建加密恢复包，保管好密码，然后在尚未设置身份的新实例恢复。
 

@@ -88,11 +88,11 @@ function revokeMedia() {
 }
 function header() {
   const isTeacher = currentRole === "teacher";
-  $("#header").innerHTML = `<div class="wrap header-inner"><button class="brand" data-action="home" aria-label="超维成长首页"><span class="brand-mark" aria-hidden="true">✳</span><span><strong>超维成长</strong><small>${currentRole ? (isTeacher ? "FOR TEACHERS · 教师空间" : "FOR STUDENTS · 学生空间") : "GROW BEYOND · LEARN WITH EVIDENCE"}</small></span></button><nav class="nav" aria-label="主导航">${currentRole ? `<button data-action="${isTeacher ? "teacher" : "student"}" class="active">${isTeacher ? "教师工作台" : "我的学习"}</button>` : ""}<button data-action="guide">使用指南</button>${isTeacher ? '<button data-action="agent">Agent 接入</button>' : ""}<button data-action="home">${currentRole ? "切换身份" : "选择身份"}</button></nav></div>`;
+  $("#header").innerHTML = `<div class="wrap header-inner"><button class="brand" data-action="home" aria-label="超维伴学首页"><span class="brand-mark" aria-hidden="true">✳</span><span><strong>超维伴学</strong><small>${currentRole ? (isTeacher ? "FOR TEACHERS · 教师空间" : "FOR STUDENTS · 学生空间") : "GROW BEYOND · LEARN WITH EVIDENCE"}</small></span></button><nav class="nav" aria-label="主导航">${currentRole ? `<button data-action="${isTeacher ? "teacher" : "student"}" class="active">${isTeacher ? "教师工作台" : "我的学习"}</button>` : ""}<button data-action="guide">使用指南</button>${isTeacher ? '<button data-action="agent">Agent 接入</button>' : ""}<button data-action="home">${currentRole ? "切换身份" : "选择身份"}</button></nav></div>`;
 }
 function shell(content) {
   $("#app").innerHTML =
-    `<div class="wrap">${content}<footer><span>超维成长 · 基于伴学 BASE</span><span>一次练习，一份证据，一步成长。 <button class="btn text small" data-action="guide">遇到问题？查看指南 ↗</button></span></footer></div>`;
+    `<div class="wrap">${content}<footer><span>超维伴学 · 基于伴学 BASE</span><span>一次练习，一份证据，一步成长。 <button class="btn text small" data-action="guide">遇到问题？查看指南 ↗</button></span></footer></div>`;
   header();
 }
 function setView(v) {

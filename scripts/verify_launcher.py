@@ -3,6 +3,7 @@ import argparse,hashlib,json,os,shutil,subprocess,time,zipfile
 from pathlib import Path
 from uuid import uuid4
 import httpx
+from package_public import TAG
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -10,7 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--packages',default='releases');parser.add_argument('--uv-archive');options=parser.parse_args()
     work=ROOT/'data/verify'/('windows launcher '+uuid4().hex);work.mkdir(parents=True)
-    package=next(Path(options.packages).glob('Hyper-Evolution-Self-Evolver-Windows-x64-*.zip'))
+    package=Path(options.packages)/('Hyper-Evolution-Self-Evolver-Windows-x64-'+TAG+'.zip')
     with zipfile.ZipFile(package) as z:z.extractall(work/'extract')
     source=next((work/'extract').iterdir());folder=work/'my data'
     environment=dict(os.environ)

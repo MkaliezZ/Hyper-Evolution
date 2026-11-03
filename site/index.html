@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="超维伴学 Hyper Evolution：Enlighter教师版、Evolver学生版和Self-Evolver自学版。下载工程测试包，按教程完成安装、API配置、师生配对与本地MCP连接。首次启动需要联网。">
+<title>超维伴学 Hyper Evolution · 三版本下载与使用教程</title>
+<meta name="theme-color" content="#f5f1e8">
+<link rel="stylesheet" href="/welcome.css?v=0.6.0-rc.2"><script defer src="/welcome.js?v=0.6.0-rc.2"></script>
+</head><body>
+<header><a class="brand" href="/">✳ 超维伴学 <small>HYPER EVOLUTION</small></a><nav aria-label="页面导航"><a href="#download">选版本与下载</a><a href="#how">安装与配对</a><a href="#api">API配置</a><a href="#agent">MCP连接</a><a href="https://github.com/MkaliezZ/Hyper-Evolution" target="_blank" rel="noopener">GitHub ↗</a></nav></header>
+<main>
+<div class="release-banner"><strong>v0.6.0-rc.2 · 工程测试版</strong><span>Windows 10 / 11 x64</span><b>首次启动需要联网</b><a href="#how">按教程开始 →</a></div>
+<section class="hero"><div><p class="eyebrow">LEARN TOGETHER. EVOLVE YOUR WAY.</p><h1>选好你的角色，<br>从一次学习开始。</h1><p class="intro">老师带着教，学生接着学，也可以独立探索。<br>一套本机工作台，让目标、练习、反馈和复习接起来。</p><a class="primary inline" href="#download">选择版本并下载 ↓</a><p class="small muted">官网提供下载和引导。安装完成后，在自己的电脑打开工作台，配置自己的模型 API。</p></div><aside class="paper"><p class="paper-label">三种入口，同一条学习主线</p><ol><li><b>01</b><div>确定这次想学会什么<small>选好目标和资料，准备一次小练习。</small></div></li><li><b>02</b><div>完成一份自己的作品<small>按要求学习，检查后明确提交。</small></div></li><li><b>03</b><div>看见反馈，继续修改<small>结合老师或 AI 的建议，把下一步做出来。</small></div></li><li><b>04</b><div>回来看，再换材料练<small>保留原稿、修订和复习记录。</small></div></li></ol><span class="paper-note">学习记录保存在本机</span></aside></section>
+
+<section id="download"><p class="eyebrow">PICK YOUR WORKSPACE</p><h2>这次，你用哪个版本？</h2><p class="section-intro">三个版本各有自己的入口和默认数据目录。下载对应的包，完整解压，再双击其中的“启动”文件。</p>
+<div class="edition-grid">
+<article class="edition" data-edition="teacher"><span class="edition-number">01 / TEACH</span><h3>Enlighter</h3><p class="edition-role">教师版</p><p>了解学生、准备练习、布置任务；结合 AI 预审，修改并发送自己的评阅。</p><p class="edition-path">学生与目标 → 备课与任务 → 作业与反馈</p><a class="primary" id="download-teacher" href="/downloads/Hyper-Evolution-Enlighter-Windows-x64-v0.6.0-rc.2.zip" download>下载 Enlighter 教师版 ↓</a><button class="text-button" data-role="teacher" aria-pressed="false">查看教师安装与使用教程 →</button><small>启动文件：<code>启动-Enlighter.cmd</code></small></article>
+<article class="edition" data-edition="student"><span class="edition-number">02 / LEARN TOGETHER</span><h3>Evolver</h3><p class="edition-role">学生版 · 跟随老师</p><p>接收老师的任务，完成并提交；查看反馈、修订作品，跟进老师分享的规划。</p><p class="edition-path">我的任务 → 提交作品 → 反馈与修订</p><a class="primary" id="download-student" href="/downloads/Hyper-Evolution-Evolver-Windows-x64-v0.6.0-rc.2.zip" download>下载 Evolver 学生版 ↓</a><button class="text-button" data-role="student" aria-pressed="true">查看学生安装与使用教程 →</button><small>启动文件：<code>启动-Evolver.cmd</code></small></article>
+<article class="edition" data-edition="self"><span class="edition-number">03 / EXPLORE</span><h3>Self-Evolver</h3><p class="edition-role">自学版</p><p>从自己的资料和问题开始，阅读、提问、做练习，再把反馈转成修订和复习。</p><p class="edition-path">读资料与提问 → 练习与作品 → 反馈与复习</p><a class="primary" id="download-self" href="/downloads/Hyper-Evolution-Self-Evolver-Windows-x64-v0.6.0-rc.2.zip" download>下载 Self-Evolver 自学版 ↓</a><button class="text-button" data-role="self" aria-pressed="false">查看自学安装与使用教程 →</button><small>启动文件：<code>启动-Self-Evolver.cmd</code></small></article>
+</div><div class="download-note"><p><strong>每个启动包约 0.8 MB。</strong>首次运行会另外下载 Python 和依赖，请保持联网并保留启动窗口；准备完成后，浏览器会自动打开。之后再次启动会使用已经准备好的环境。</p><p class="small"><a href="/downloads/Hyper-Evolution-v0.6.0-rc.2-SHA256SUMS.txt">查看三个包的 SHA256 校验值</a> · <a href="https://github.com/MkaliezZ/Hyper-Evolution/releases/tag/v0.6.0-rc.2" target="_blank" rel="noopener">GitHub 备用下载与版本记录 ↗</a></p></div></section>
+
+<section id="how"><p class="eyebrow">FOLLOW ONE CLEAR PATH</p><h2 id="role-title">Evolver 学生版：跟着老师完成一次学习。</h2><p id="role-intro" class="section-intro">先连接老师，再领取任务。完成后查看反馈，按下一步继续。</p>
+<div class="role-tabs" aria-label="切换教程版本"><button data-role="teacher" aria-pressed="false">Enlighter 教师版</button><button data-role="student" aria-pressed="true">Evolver 学生版</button><button data-role="self" aria-pressed="false">Self-Evolver 自学版</button></div>
+<p class="share-row"><a href="/?role=teacher#how">教师教程链接</a><a href="/?role=student#how">学生教程链接</a><a href="/?role=self#how">自学教程链接</a><button class="text-button" id="copy-guide" type="button">复制当前版本教程链接</button><span id="copy-status" role="status" aria-live="polite"></span></p>
+<div class="steps">
+<article><span>01 / 安装与打开</span><h3>完整解压，双击启动。</h3><p>从上方下载对应版本，右键选择“全部解压”，打开解压后的文件夹。</p><p>双击 <code id="role-launch">启动-Evolver.cmd</code>。首次运行联网准备 Python 与依赖，等待浏览器自动打开。</p><p id="role-setup">向导会预选 Evolver 学生版，确认身份、填写称呼，再选择学科与路线。</p><a id="role-download" class="small" href="/downloads/Hyper-Evolution-Evolver-Windows-x64-v0.6.0-rc.2.zip" download>下载当前版本 ↓</a></article>
+<article><span>02 / 自己的模型</span><h3>填好 API，先测一次。</h3><p id="role-api">在“连接与设置 → 模型与本机设置”填写自己的服务商、接口地址、模型名与 API Key，点击测试连接，再保存。</p><p>API Key 在安装后的本机工作台填写。也可以先完成身份设置，稍后再配置模型。</p><a href="#api">查看字段说明与额度来源 →</a></article>
+<article><span>03 / 开始连接</span><h3 id="role-pair-title">输入老师的配对码。</h3><p id="role-pair">打开“连接与设置 → 我的老师”，输入老师生成的十二位配对码，双方保持程序在线。</p><p id="role-pair-check">连接成功后，选中对应学科，在“我的任务”领取老师布置的任务。</p></article>
+<article><span>04 / 第一轮学习</span><h3 id="role-task-title">交一份作品，接着改一次。</h3><p id="role-task">读清任务要求和评价标准，完成后点击提交。到“反馈与修订”查看建议，再修改并提交。</p><p id="role-check">在“目标与安排”查看老师分享的规划和学习安排。</p><a id="role-manual" class="small" href="https://github.com/MkaliezZ/Hyper-Evolution/blob/main/docs/evolver.md" target="_blank" rel="noopener">查看完整角色说明 ↗</a></article>
+</div></section>
+
+<section id="api"><p class="eyebrow">YOUR MODEL, YOUR ACCOUNT</p><h2>API 怎么填，谁的额度？</h2><p class="section-intro">打开安装后的本机工作台，在“连接与设置 → 模型与本机设置”配置。准备好服务商控制台提供的四项信息。</p>
+<div class="table-wrap"><table><thead><tr><th>要填什么</th><th>怎么找到</th></tr></thead><tbody>
+<tr><td>服务商</td><td>选择你的模型服务，或使用支持相应能力的 OpenAI 兼容接口。</td></tr><tr><td>API 基础地址</td><td>按服务商文档填写。例如 DeepSeek 预设使用 <code>https://api.deepseek.com</code>；兼容服务通常会给出以 <code>/v1</code> 结尾的地址。</td></tr><tr><td>模型名称</td><td>复制服务商控制台提供的准确模型标识。图片提问时，选择支持图片输入的模型。</td></tr><tr><td>API Key</td><td>使用你自己创建的 Key。选择记住后，Windows 版本保存在系统凭据管理器；也可以只在本次使用。</td></tr></tbody></table></div>
+<div class="two-columns"><article><span>网页内置 AI</span><h3>使用本机填写的 API。</h3><p>资料解释、练习草稿、写作建议、自学反馈、教师 AI 预审，都使用当前用户自己的模型配置。测试连接也会发送一次小请求，费用来自该服务商账户。</p><p>老师的 AI 预审使用老师的额度；学生自己的 AI 帮助使用学生的额度。</p></article><article><span>外部 AGENT + MCP</span><h3>使用 Agent 自己的模型。</h3><p>外部 Agent 通过本地 MCP 读写允许访问的学习工作区，模型推理使用该 Agent 自己配置的服务。网页和 Agent 共享本机学习记录。</p><p>调用云端模型时，完成本次任务所需的材料和作品会发送给你选择的模型服务商。</p></article></div></section>
+
+<section id="agent"><p class="eyebrow">CONNECT YOUR OWN AGENT</p><h2>让自己的 Agent 接上本地 MCP。</h2><p id="role-mcp" class="section-intro">先打开学生版本机工作台，在“模型与本机设置”复制本机生成的 MCP 配置，粘贴到自己的 Agent 中。</p><ol class="numbered"><li>先完成本机身份设置，在“连接与设置 → 模型与本机设置”找到“查看本地 MCP 连接配置”。</li><li>复制完整配置，粘贴到支持 MCP 的 Agent 的设置中。配置包含本机 Python 入口、源码位置和当前数据目录。</li><li>重新连接 MCP，让 Agent 先读取本机身份与当前学科，再交代具体任务。</li></ol><div class="prompt"><span>可以先这样说</span><blockquote id="role-agent-prompt">先读取超维伴学本机身份和我的任务，帮我理解一份待完成任务的要求。</blockquote></div><p class="small muted">stdio MCP 可以由 Agent 启动；HTTP MCP 需要本机服务保持运行。复制配置时，把本机凭据交给自己信任的客户端。</p><a href="https://github.com/MkaliezZ/Hyper-Evolution/blob/main/docs/mcp.md" target="_blank" rel="noopener">查看 MCP 完整教程 ↗</a></section>
+
+<section id="questions"><p class="eyebrow">A FEW USEFUL ANSWERS</p><h2>卡住时，从这里继续。</h2>
+<details><summary>第一次打开为什么要等？</summary><p>启动包先准备 Python 和所需依赖，会访问 GitHub 与 Python 包源。保持联网和启动窗口打开，等待完成后浏览器会自动出现。网络中断时，恢复连接后再次运行启动文件。后续启动直接使用本机环境。</p></details>
+<details><summary>配对码怎么用？</summary><p>老师在教师版生成十二位配对码，学生在学生版的“我的老师”输入。配对码十分钟有效，过期由老师重新生成。双方保持程序在线，连接成功后选中相应学科收发任务、作品和反馈。自学版可以直接开始；需要老师带学时切到 Evolver 再配对。</p></details>
+<details><summary>API 测试没有通过，先检查什么？</summary><p>依次核对基础地址、准确模型名、Key 权限、余额及网络。更换接口地址时，重新输入对应的 Key，再测试并保存。连接问题可附版本、步骤和已隐去密钥的报错提交给测试组织者。</p></details>
+<details><summary>MCP 连接后看不到我的任务？</summary><p>回到你实际使用的工作台，重新复制本机生成的 MCP 配置，检查它指向正确的程序和数据目录。重新连接后，让 Agent 读取当前身份与学科；教师、学生和自学版分别使用各自的默认目录。</p></details>
+<details><summary>教师 AI 预审之后怎么发给学生？</summary><p>教师在“作业与反馈”打开实际提交，运行 AI 预审，逐项修改建议并保存草稿。检查完成后，明确确认发布，学生就能收到教师反馈。学生根据反馈修订后，再次提交。</p></details>
+<details><summary>关网页、退出服务、升级和换电脑分别怎么做？</summary><p>关闭网页后，本机服务会继续运行。准备退出或升级时，在设置里选择“保存并退出服务”。升级前先创建加密恢复包，再解压新程序。学习记录保存在用户目录，具体位置可在设置查看。换电脑时用恢复包和自己保管的密码恢复到新实例。</p></details>
+<details><summary>学习记录在哪里？需要官网账号吗？</summary><p>本机版本从身份向导开始使用，学习记录保存在用户电脑。师生明确分享的任务、作品和反馈会在双方设备保存副本。连接服务负责协商与必要中转；云模型收到的是完成所选任务所需的上下文。</p></details>
+</section>
+</main><footer><strong>超维伴学 Hyper Evolution</strong><p>v0.6.0-rc.2 · 工程测试版 · Windows x64 · 首次启动需要联网<br>审美层 · 功能层 · 资产层</p><p><a href="/?role=teacher#how">转发教师教程</a> · <a href="/?role=student#how">转发学生教程</a> · <a href="/?role=self#how">转发自学教程</a> · <a href="https://github.com/MkaliezZ/Hyper-Evolution/issues" target="_blank" rel="noopener">反馈测试问题 ↗</a></p><p class="small muted">反馈时请附版本和操作步骤，并隐去 API Key、口令及学习者个人资料。</p></footer>
+</body></html>

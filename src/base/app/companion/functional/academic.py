@@ -444,7 +444,7 @@ def publish(runtime,r,value):
         extra={'audio':{'data':base64.b64encode(path.read_bytes()).decode(),'sha256':a['sha256']}}
     learner=runtime.peer(r.peer_id)['learner_id'] if runtime.role=='teacher' else runtime.profile['learner_id']
     person=runtime.service.public_person(learner)
-    activity={'name':'超维成长','activity_title':b['title'],'goal':b['goal'],'instructions':b['instructions'],'material':'原始材料与录音按逐题内容查看。来源：'+b['source'],
+    activity={'name':'超维伴学','activity_title':b['title'],'goal':b['goal'],'instructions':b['instructions'],'material':'原始材料与录音按逐题内容查看。来源：'+b['source'],
         'deliverable':'按本次题目完成作答，说明帮助','criteria':'；'.join(b['criteria']),'next_step':'查看反馈后选择适当验证','mode':'text','assessment_version':'k12.grade.v1','growth':pack}
     receipt=runtime.service.base.create(person['name'],activity,'academic-publish:'+r.request_id,learner_id=learner);tid=receipt['id']
     if runtime.role=='teacher':

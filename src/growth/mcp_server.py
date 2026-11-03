@@ -9,7 +9,7 @@ from base.app.content import BLUEPRINTS, SKILLS
 
 def create_mcp(service):
     server = FastMCP(
-        "超维成长",
+        "超维伴学",
         instructions="先读get_context，按明确授权操作对应学生。学生提交与教师评阅分开。没有完成实际试听/内容核验时不得声称审校通过；练习分数不是正式考试等级。",
         stateless_http=True,
         json_response=True,

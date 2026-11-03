@@ -121,7 +121,7 @@ def invoke(runtime,raw):
             pack={'id':'reading-'+uuid4().hex,'family_id':material['id'],'title':material['title'],'purpose':'reading',
                 'exam':exam,'stage':stage,'task_type':'source_response','instructions':plan['question'],'stimulus':material['selection'],
                 'items':[],'source':{'kind':'user_material','title':material['source']},'companion_plan':plan,'audio':None}
-            draft={'name':'超维成长','activity_title':pack['title'],'goal':p.goal,'deliverable':plan['operation'],
+            draft={'name':'超维伴学','activity_title':pack['title'],'goal':p.goal,'deliverable':plan['operation'],
                 'instructions':plan['question'],'material':pack['stimulus'],'criteria':'；'.join(plan['criteria']),
                 'next_step':plan['verification'],'mode':'text','assessment_version':'source-response-1','growth':pack}
             return {'draft':draft,'plan':plan}

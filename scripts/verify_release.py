@@ -6,6 +6,7 @@ import httpx,uvicorn
 from mcp import ClientSession,StdioServerParameters
 from mcp.client.stdio import stdio_client
 from growth_local.signal import create_app
+from package_public import TAG
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -30,14 +31,14 @@ async def main():
     await until(signal_ready)
     try:
         for edition,brand in editions.items():
-            archives=list(Path(args.packages).glob(f'Hyper-Evolution-{brand}-Windows-x64-*.zip'));assert len(archives)==1
+            archives=list(Path(args.packages).glob(f'Hyper-Evolution-{brand}-Windows-x64-{TAG}.zip'));assert len(archives)==1
             extracted=work/'extracted'/edition
             with zipfile.ZipFile(archives[0]) as z:
                 assert z.testzip() is None
                 for n in z.namelist():assert not Path(n).is_absolute() and '..' not in Path(n).parts
                 z.extractall(extracted)
             source=next(extracted.iterdir());manifest=json.loads((source/'PACKAGE-MANIFEST.json').read_text(encoding='utf8'))
-            assert manifest['edition']==edition and not manifest['runtime_binaries_included']
+            assert manifest['edition']==edition and manifest['release']==TAG and not manifest['runtime_binaries_included']
             for n,digest in manifest['files'].items():assert hashlib.sha256((source/n).read_bytes()).hexdigest()==digest
             folder=work/'devices'/edition
             log=open(work/(edition+'.log'),'w',encoding='utf8');logs.append(log)
@@ -61,7 +62,7 @@ async def main():
             status=(await client.get('/api/local/status')).json()
             assert status['profile']['role']==('teacher' if edition=='teacher' else 'student')
             assert status['experience']['id']==edition
-            assert (await client.get('/')).status_code==200
+            page=await client.get('/');assert page.status_code==200 and '超维伴学' in page.text and '超维成长' not in page.text
             assert 'launch_edition' in (await client.get('/assets/experience.js')).text
             configuration=(await client.get('/api/local/mcp-config')).json()['mcpServers']['hyper-growth-local']
             assert configuration['command']==sys.executable and configuration['env']['HYPER_GROWTH_DATA']==str(folder)

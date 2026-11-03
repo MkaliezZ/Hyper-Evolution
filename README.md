@@ -1,4 +1,4 @@
-# Hyper Evolution · 超维成长
+# 超维伴学 Hyper Evolution
 
 **把学习目标变成下一步行动，让每一次练习、反馈和复习接得起来。**
 
@@ -8,7 +8,9 @@ Hyper Evolution 是一套运行在个人电脑上的开源学习工作台。老�
 
 Local-first learning for teachers, students and self-learners — with a browser workspace, your own model API, and local MCP tools.
 
-**当前发布：v0.6.0-rc.1 工程测试版 · Windows 10/11 x64。** 欢迎带着真实使用问题来测试和共建。版本记录、安装包与校验文件见 [Releases](https://github.com/MkaliezZ/Hyper-Evolution/releases)。
+**当前发布：v0.6.0-rc.2 工程测试版 · Windows 10/11 x64。** 欢迎带着真实使用问题来测试和共建。版本记录、安装包与校验文件见 [Releases](https://github.com/MkaliezZ/Hyper-Evolution/releases)。
+
+[官网与三版本下载](https://124.222.12.235/) · [教师安装教程](https://124.222.12.235/?role=teacher#how) · [学生安装教程](https://124.222.12.235/?role=student#how) · [自学安装教程](https://124.222.12.235/?role=self#how)
 
 ## 先选适合你的版本
 
@@ -16,9 +18,9 @@ Local-first learning for teachers, students and self-learners — with a browser
 
 | 版本 | 适合谁 | 从哪里开始 | 下载 |
 | --- | --- | --- | --- |
-| **Enlighter · 教师版** | 教师、辅导者 | 连接学生 → 了解现状与目标 → 布置任务 → 查看作品与反馈 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.1/Hyper-Evolution-Enlighter-Windows-x64-v0.6.0-rc.1.zip) |
-| **Evolver · 学生版** | 跟随老师学习的学生 | 输入配对码 → 领取任务 → 完成并提交 → 根据反馈修订 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.1/Hyper-Evolution-Evolver-Windows-x64-v0.6.0-rc.1.zip) |
-| **Self-Evolver · 自学版** | 自主学习者 | 导入自己的资料 → 阅读与提问 → 练习 → 反馈与复习 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.1/Hyper-Evolution-Self-Evolver-Windows-x64-v0.6.0-rc.1.zip) |
+| **Enlighter · 教师版** | 教师、辅导者 | 连接学生 → 了解现状与目标 → 布置任务 → 查看作品与反馈 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.2/Hyper-Evolution-Enlighter-Windows-x64-v0.6.0-rc.2.zip) |
+| **Evolver · 学生版** | 跟随老师学习的学生 | 输入配对码 → 领取任务 → 完成并提交 → 根据反馈修订 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.2/Hyper-Evolution-Evolver-Windows-x64-v0.6.0-rc.2.zip) |
+| **Self-Evolver · 自学版** | 自主学习者 | 导入自己的资料 → 阅读与提问 → 练习 → 反馈与复习 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.2/Hyper-Evolution-Self-Evolver-Windows-x64-v0.6.0-rc.2.zip) |
 
 ## 从这里开始
 

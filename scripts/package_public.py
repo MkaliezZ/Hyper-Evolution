@@ -3,7 +3,7 @@ import argparse,hashlib,json,subprocess,zipfile
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-TAG='v0.6.0-rc.1'
+TAG='v0.6.0-rc.2'
 EDITIONS={'teacher':'Enlighter','student':'Evolver','self':'Self-Evolver'}
 ALLOWED_ROOT={'README.md','LICENSE','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','SECURITY.md','ROADMAP.md','AGENTS.md',
  'pyproject.toml','requirements-local.in','requirements-local.lock','requirements-runtime.lock','requirements-mcp.lock','requirements.lock'}

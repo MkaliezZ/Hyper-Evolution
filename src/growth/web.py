@@ -21,7 +21,7 @@ def create_app(data=None):
         async with mcp.session_manager.run():
             yield
 
-    app = FastAPI(title="超维成长", docs_url=None, redoc_url=None, lifespan=lifespan)
+    app = FastAPI(title="超维伴学", docs_url=None, redoc_url=None, lifespan=lifespan)
     app.state.service = service
 
     def teacher(req, learner_id=None):
@@ -85,7 +85,7 @@ def create_app(data=None):
         return {
             "ok": True,
             "version": "0.2.0",
-            "product": "超维成长",
+            "product": "超维伴学",
             "transports": ["web", "mcp-stdio", "mcp-streamable-http"],
         }
 

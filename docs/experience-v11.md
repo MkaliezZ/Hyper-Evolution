@@ -2,7 +2,7 @@
 
 2026-11-02，源码工程版。官网安装包另行构建、验收和发布。
 
-沿用超维成长与伴学 BASE，复用此前借鉴 DeepTutor 的“阅读—提问—练习—反馈—复习”流程，不引入第二套数据库或完整 DeepTutor 服务。上游本轮核对 HEAD `f7aed0744c36c5afef16a4261c31ebee1208cac2`；已有借鉴与许可见 `third_party/deeptutor/`。本轮模式组合与自主作品反馈由本项目实现。
+沿用超维伴学与伴学 BASE，复用此前借鉴 DeepTutor 的“阅读—提问—练习—反馈—复习”流程，不引入第二套数据库或完整 DeepTutor 服务。上游本轮核对 HEAD `f7aed0744c36c5afef16a4261c31ebee1208cac2`；已有借鉴与许可见 `third_party/deeptutor/`。本轮模式组合与自主作品反馈由本项目实现。
 
 ## 页面归属
 

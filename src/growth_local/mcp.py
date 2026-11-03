@@ -43,7 +43,7 @@ def create_mcp(runtime):
                 raise PermissionError('历史工作区只读，请先切换学科。')
             with runtime.bind():return await super().call_tool(name, arguments)
 
-    server = ScopedMCP('超维成长本地版', stateless_http=True, json_response=True, streamable_http_path='/', instructions='先读取get_local_status。数据仅来自本机实例。不得把模型建议或学生本机修改当作教师签名的评阅。所有跨电脑行为经配对和签名验证。', transport_security=TransportSecuritySettings(allowed_hosts=['127.0.0.1:*', 'localhost:*', '[::1]:*'], allowed_origins=['http://127.0.0.1:*', 'http://localhost:*']))
+    server = ScopedMCP('超维伴学 Hyper Evolution', stateless_http=True, json_response=True, streamable_http_path='/', instructions='先读取get_local_status。数据仅来自本机实例。不得把模型建议或学生本机修改当作教师签名的评阅。所有跨电脑行为经配对和签名验证。', transport_security=TransportSecuritySettings(allowed_hosts=['127.0.0.1:*', 'localhost:*', '[::1]:*'], allowed_origins=['http://127.0.0.1:*', 'http://localhost:*']))
 
     @server.tool()
     def get_local_status() -> dict:

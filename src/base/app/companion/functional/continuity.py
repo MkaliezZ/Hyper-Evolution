@@ -225,7 +225,7 @@ def invoke(runtime,raw):
                 'task_type':'source_response','instructions':plan['question'],'stimulus':text,'items':[],'audio':None,
                 'source':{'kind':'original_page' if original else 'user_material','title':source},'companion_plan':companion}
             if original:pack['source_page']=original
-            draft={'name':'超维成长','activity_title':title,'goal':p.goal,'deliverable':plan['operation'],'instructions':plan['question'],
+            draft={'name':'超维伴学','activity_title':title,'goal':p.goal,'deliverable':plan['operation'],'instructions':plan['question'],
                 'material':text,'criteria':'；'.join(plan['criteria']),'next_step':plan['verification'],'mode':'text','assessment_version':'policy-runtime-0.3','growth':pack}
             return {'draft':draft,'plan':plan}
         if r.operation=='memory.capture':

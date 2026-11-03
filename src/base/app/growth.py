@@ -264,7 +264,7 @@ class GrowthService:
             raise KeyError("任务不存在")
         task = self.base.task(r["token"])
         if "growth" not in task["snapshot"]:
-            raise ValueError("这不是超维成长任务")
+            raise ValueError("这不是超维伴学任务")
         return task
 
     def session(self, id):
@@ -461,7 +461,7 @@ class GrowthService:
         else:
             pack = make_drill(p["exam"], p["stage"], focus, seed, purpose)
         draft = {
-            "name": "超维成长",
+            "name": "超维伴学",
             "activity_title": pack["title"],
             "goal": SKILLS.get(focus, "理解并独立迁移"),
             "deliverable": "逐题作答或提交作品；依据反馈修订，并用未见材料复测。",

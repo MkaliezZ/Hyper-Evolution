@@ -11,7 +11,7 @@ import webbrowser
 
 def main():
     from growth_local.mcp import default_data
-    parser = argparse.ArgumentParser(description='超维成长本地版')
+    parser = argparse.ArgumentParser(description='超维伴学 Hyper Evolution')
     parser.add_argument('--data', default=os.environ.get('HYPER_GROWTH_DATA'))
     parser.add_argument('--edition', choices=['teacher', 'student', 'self'], help='预选首次使用入口，并使用该版本的独立默认数据目录')
     parser.add_argument('--coordinator', default=os.environ.get('HYPER_EVOLUTION_COORDINATOR'), help='自己的 wss:// 连接服务地址')

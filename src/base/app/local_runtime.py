@@ -330,7 +330,7 @@ class LocalRuntime:
         if not pack or pack.get('source', {}).get('kind') != 'model_original_draft' or pack['exam'] != dashboard['person']['exam']:
             raise ValueError('未找到本机对应考试的模型草稿')
         pack = {**pack, 'purpose': 'practice', 'review_state': 'AI自主练习，未经教师审校'}
-        draft = {'name': '超维成长', 'activity_title': pack['title'], 'instructions': pack['instructions'], 'material': pack['stimulus'], 'goal': '根据诊断错因自主练习', 'deliverable': '逐题作答并对照依据，不作为教师核验结论', 'criteria': 'AI草稿可能有误；自动核对不是教师确认达标', 'next_step': '与老师核对依据后，再用未见材料复测', 'mode': 'text', 'assessment_version': 'local-draft-0.3', 'growth': pack}
+        draft = {'name': '超维伴学', 'activity_title': pack['title'], 'instructions': pack['instructions'], 'material': pack['stimulus'], 'goal': '根据诊断错因自主练习', 'deliverable': '逐题作答并对照依据，不作为教师核验结论', 'criteria': 'AI草稿可能有误；自动核对不是教师确认达标', 'next_step': '与老师核对依据后，再用未见材料复测', 'mode': 'text', 'assessment_version': 'local-draft-0.3', 'growth': pack}
         task = self.service.base.create(dashboard['person']['name'], draft, 'local-draft:' + request_key, learner_id=id)
         return self.service.session(task['id'])
 

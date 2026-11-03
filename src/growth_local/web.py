@@ -51,7 +51,7 @@ def create_app(data, runtime=None, network=True):
                 task.cancel()
             if stopping:await asyncio.gather(*stopping,return_exceptions=True)
 
-    app = FastAPI(title='超维成长本地版', docs_url=None, redoc_url=None, lifespan=lifespan)
+    app = FastAPI(title='超维伴学 Hyper Evolution', docs_url=None, redoc_url=None, lifespan=lifespan)
     app.state.runtime = runtime
     app.state.bootstrap = bootstrap
 
@@ -75,7 +75,7 @@ def create_app(data, runtime=None, network=True):
                 return JSONResponse({'error': '请求长度无效'}, 400)
         if (req.url.path.startswith('/api/') and req.url.path not in ['/api/local/session', '/api/local/ready']) or req.url.path.startswith('/mcp'):
             if not authorized(req):
-                return JSONResponse({'error': '请从本机快捷方式打开超维成长，或使用本机MCP凭据。'}, 401)
+                return JSONResponse({'error': '请从本机快捷方式打开超维伴学，或使用本机MCP凭据。'}, 401)
         if runtime.enabled() and runtime.current()=='legacy' and req.method not in ['GET','HEAD','OPTIONS']:
             permitted=['/api/local/session','/api/local/reopen','/api/local/capabilities/invoke','/api/local/model','/api/local/model/key','/api/local/model/test','/api/local/pair/','/api/local/backup/','/api/local/exit','/mcp']
             if not any(req.url.path==p or p.endswith('/') and req.url.path.startswith(p) for p in permitted):
@@ -109,7 +109,7 @@ def create_app(data, runtime=None, network=True):
 
     @app.get('/api/local/ready')
     def ready():
-        return {'ok': True, 'version': '0.6.0-rc.1-engineering'}
+        return {'ok': True, 'version': '0.6.0-rc.2-engineering'}
 
     @app.post('/api/local/session')
     async def session(req: Request):

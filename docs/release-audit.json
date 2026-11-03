@@ -1,5 +1,6 @@
 {
-  "release": "v0.6.0-rc.1",
+  "release": "v0.6.0-rc.2",
+  "product": "超维伴学 Hyper Evolution",
   "date": "2026-11-03",
   "delivery": "three Windows x64 online source installer editions",
   "editions": ["Enlighter", "Evolver", "Self-Evolver"],
@@ -22,7 +23,7 @@
   },
   "verification": {
     "python_tests_passed": 206,
-    "frontend_tests_passed": 32,
+    "frontend_tests_passed": 35,
     "base_business_check": true,
     "fresh_runtime": true,
     "three_extracted_packages": true,

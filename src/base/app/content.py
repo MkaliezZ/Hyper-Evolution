@@ -87,7 +87,7 @@ def make_drill(exam, stage, focus="detail", seed="0", purpose="practice"):
     heading = f"{topic.title()} · {place.title()}"
     source = {
         "kind": "original",
-        "title": "超维成长原创微练习",
+        "title": "超维伴学原创微练习",
         "version": "1",
         "review": "developer_template_checked",
         "calibration": "未标定，不是官方真题",
