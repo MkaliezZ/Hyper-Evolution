@@ -14,7 +14,6 @@ if not exist ".tools" mkdir ".tools"
 powershell.exe -NoProfile -Command "$ErrorActionPreference='Stop'; [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; $p=Join-Path (Get-Location) '.tools\uv.zip'; Invoke-WebRequest -UseBasicParsing 'https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-pc-windows-msvc.zip' -OutFile $p; if((Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLower() -ne '0cdc5b38fe5a8168ed6a25814f5ba43c21d313dd3187314fccb37b7cec46e021'){throw '安装工具校验未通过，请重新下载'}; Expand-Archive -LiteralPath $p -DestinationPath '.tools\uv-download' -Force; $exe=Get-ChildItem '.tools\uv-download' -Filter 'uv.exe' -Recurse | Select-Object -First 1; if(-not $exe){throw '安装工具缺少入口'}; Copy-Item -LiteralPath $exe.FullName -Destination '.tools\uv.exe'"
 if errorlevel 1 goto failed
 :have_uv
-set "UV_PYTHON_INSTALL_DIR=%LOCALAPPDATA%\HyperEvolution\runtime\python"
 if exist ".runtime\Scripts\python.exe" goto have_python
 echo [2/3] 正在准备 Python 3.11，安装在当前用户目录……
 "%UV%" venv --python 3.11 --managed-python .runtime
