@@ -43,6 +43,13 @@ def main():
         (ROOT/'artifacts/windows-launcher-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
         print(json.dumps(report,ensure_ascii=False))
     finally:
+        if (folder/'running.json').exists() and (folder/'owner-token.txt').exists():
+            try:
+                port=json.loads((folder/'running.json').read_text())['port']
+                with httpx.Client(trust_env=False,timeout=10) as cleanup:
+                    cleanup.post(f'http://127.0.0.1:{port}/api/local/exit',headers={'Authorization':'Bearer '+(folder/'owner-token.txt').read_text().strip()})
+                time.sleep(.5)
+            except Exception:pass
         if process.poll() is None:process.terminate()
         log.close()
 

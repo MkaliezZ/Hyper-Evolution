@@ -11,7 +11,7 @@ if defined UV_FOUND set "UV=%UV_FOUND%"
 if defined UV_FOUND goto have_uv
 echo [1/3] 正在准备安装工具，首次启动需要联网……
 if not exist ".tools" mkdir ".tools"
-powershell.exe -NoProfile -Command "$ErrorActionPreference='Stop'; [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; $p=Join-Path (Get-Location) '.tools\uv.zip'; Invoke-WebRequest -UseBasicParsing 'https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-pc-windows-msvc.zip' -OutFile $p; if((Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLower() -ne '0cdc5b38fe5a8168ed6a25814f5ba43c21d313dd3187314fccb37b7cec46e021'){throw '安装工具校验未通过，请重新下载'}; Expand-Archive -LiteralPath $p -DestinationPath '.tools\uv-download' -Force; $exe=Get-ChildItem '.tools\uv-download' -Filter 'uv.exe' -Recurse | Select-Object -First 1; if(-not $exe){throw '安装工具缺少入口'}; Copy-Item -LiteralPath $exe.FullName -Destination '.tools\uv.exe'"
+powershell.exe -NoProfile -Command "$ErrorActionPreference='Stop'; [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; $p=[IO.Path]::GetFullPath('.tools\uv.zip'); (New-Object Net.WebClient).DownloadFile('https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-pc-windows-msvc.zip',$p); $sha=[Security.Cryptography.SHA256]::Create(); $hash=[BitConverter]::ToString($sha.ComputeHash([IO.File]::ReadAllBytes($p))).Replace('-','').ToLower(); if($hash -ne '0cdc5b38fe5a8168ed6a25814f5ba43c21d313dd3187314fccb37b7cec46e021'){throw '安装工具校验未通过，请重新下载'}; [void][Reflection.Assembly]::LoadWithPartialName('System.IO.Compression.FileSystem'); $d=[IO.Path]::GetFullPath('.tools\uv-'+[Guid]::NewGuid().ToString('N')); [IO.Compression.ZipFile]::ExtractToDirectory($p,$d); $exe=[IO.Directory]::GetFiles($d,'uv.exe',[IO.SearchOption]::AllDirectories); if($exe.Length -ne 1){throw '安装工具缺少入口'}; [IO.File]::Copy($exe[0],[IO.Path]::GetFullPath('.tools\uv.exe'),$true)"
 if errorlevel 1 goto failed
 :have_uv
 if exist ".runtime\Scripts\python.exe" goto have_python
@@ -20,12 +20,13 @@ echo [2/3] 正在准备 Python 3.11，安装在当前用户目录……
 if errorlevel 1 goto failed
 :have_python
 set "PY=%CD%\.runtime\Scripts\python.exe"
-powershell.exe -NoProfile -Command "$h=(Get-FileHash -LiteralPath 'requirements-runtime.lock' -Algorithm SHA256).Hash; if((Test-Path '.runtime\hyper-evolution-lock.txt') -and (Get-Content '.runtime\hyper-evolution-lock.txt' -Raw).Trim() -eq $h){exit 0}else{exit 1}"
+"%PY%" -c "import hashlib,pathlib,sys; p=pathlib.Path('.runtime/hyper-evolution-lock.txt'); h=hashlib.sha256(pathlib.Path('requirements-runtime.lock').read_bytes()).hexdigest(); sys.exit(0 if p.exists() and p.read_text().strip()==h else 1)"
 if not errorlevel 1 goto ready
 echo [3/3] 正在安装学习工作台依赖，完成后自动打开……
 "%UV%" pip sync --python "%PY%" requirements-runtime.lock
 if errorlevel 1 goto failed
-powershell.exe -NoProfile -Command "(Get-FileHash -LiteralPath 'requirements-runtime.lock' -Algorithm SHA256).Hash | Set-Content -LiteralPath '.runtime\hyper-evolution-lock.txt' -Encoding ascii"
+"%PY%" -c "import hashlib,pathlib; pathlib.Path('.runtime/hyper-evolution-lock.txt').write_text(hashlib.sha256(pathlib.Path('requirements-runtime.lock').read_bytes()).hexdigest(),encoding='ascii')"
+if errorlevel 1 goto failed
 :ready
 set "PYTHONPATH=%CD%\src"
 set "PYTHONUTF8=1"
