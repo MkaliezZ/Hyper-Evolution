@@ -6,12 +6,13 @@ set "EDITION=%~1"
 if "%EDITION%"=="" set "EDITION=self"
 set "UV=%CD%\.tools\uv.exe"
 if exist "%UV%" goto have_uv
+set "UV_FOUND="
 for /f "delims=" %%U in ('where uv.exe 2^>nul') do if not defined UV_FOUND set "UV_FOUND=%%U"
 if defined UV_FOUND set "UV=%UV_FOUND%"
 if defined UV_FOUND goto have_uv
 echo [1/3] 正在准备安装工具，首次启动需要联网……
 if not exist ".tools" mkdir ".tools"
-powershell.exe -NoProfile -Command "$ErrorActionPreference='Stop'; [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; $p=[IO.Path]::GetFullPath('.tools\uv.zip'); (New-Object Net.WebClient).DownloadFile('https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-pc-windows-msvc.zip',$p); $sha=[Security.Cryptography.SHA256]::Create(); $hash=[BitConverter]::ToString($sha.ComputeHash([IO.File]::ReadAllBytes($p))).Replace('-','').ToLower(); if($hash -ne '0cdc5b38fe5a8168ed6a25814f5ba43c21d313dd3187314fccb37b7cec46e021'){throw '安装工具校验未通过，请重新下载'}; [void][Reflection.Assembly]::LoadWithPartialName('System.IO.Compression.FileSystem'); $d=[IO.Path]::GetFullPath('.tools\uv-'+[Guid]::NewGuid().ToString('N')); [IO.Compression.ZipFile]::ExtractToDirectory($p,$d); $exe=[IO.Directory]::GetFiles($d,'uv.exe',[IO.SearchOption]::AllDirectories); if($exe.Length -ne 1){throw '安装工具缺少入口'}; [IO.File]::Copy($exe[0],[IO.Path]::GetFullPath('.tools\uv.exe'),$true)"
+powershell.exe -NoProfile -Command "$ErrorActionPreference='Stop'; [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; $p=[IO.Path]::GetFullPath('.tools\uv.zip'); if(-not [IO.File]::Exists($p)){([Net.WebClient]::new()).DownloadFile('https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-pc-windows-msvc.zip',$p)}; $sha=[Security.Cryptography.SHA256]::Create(); $hash=[BitConverter]::ToString($sha.ComputeHash([IO.File]::ReadAllBytes($p))).Replace('-','').ToLower(); if($hash -ne '0cdc5b38fe5a8168ed6a25814f5ba43c21d313dd3187314fccb37b7cec46e021'){throw '安装工具校验未通过，请重新下载'}; [void][Reflection.Assembly]::LoadWithPartialName('System.IO.Compression.FileSystem'); $d=[IO.Path]::GetFullPath('.tools\uv-'+[Guid]::NewGuid().ToString('N')); [IO.Compression.ZipFile]::ExtractToDirectory($p,$d); $exe=[IO.Directory]::GetFiles($d,'uv.exe',[IO.SearchOption]::AllDirectories); if($exe.Length -ne 1){throw '安装工具缺少入口'}; [IO.File]::Copy($exe[0],[IO.Path]::GetFullPath('.tools\uv.exe'),$true)"
 if errorlevel 1 goto failed
 :have_uv
 if exist ".runtime\Scripts\python.exe" goto have_python
