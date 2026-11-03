@@ -1,0 +1,81 @@
+{
+  "policy_id": "learning.policy.evaluation_and_evidence",
+  "design_index": "P08",
+  "version": "0.3.0",
+  "level": "domain",
+  "status": "candidate",
+  "owner_ref": null,
+  "name": "评价、证据与结论",
+  "judgement_question": "凭什么判断做到了什么，哪些仍不能判断？",
+  "decision_outputs": [
+    "维度与证据契约",
+    "评价来源和条件",
+    "可判 / 不可判结论",
+    "限制与待复核项"
+  ],
+  "rules": [
+    {
+      "rule_id": "P08-R1",
+      "when": "作质量或进步判断",
+      "decision": "每个维度有对应证据和条件，区分原始观察、派生指标、推断与未知。",
+      "rationale": "文字不能证明发音，运行次数不能证明理解，形式通过不能证明学习。",
+      "check": "结论可追溯至足够的相应证据。",
+      "on_unknown_or_failure": "缺证据只做有限建议或保留未知，不补造结果。"
+    },
+    {
+      "rule_id": "P08-R2",
+      "when": "记录完成、达标、迁移或长期结果",
+      "decision": "分别描述，不把自动检查、一次分数或支持后作品升级为稳定掌握。",
+      "rationale": "不同结论要求不同证据；比较条件也可能影响结果。",
+      "check": "说明评价来源、使用规则和支持条件；开放作品允许无分数。",
+      "on_unknown_or_failure": "无法比较时分别报告本次观察；正式判断遵守实际权限与专业要求。"
+    },
+    {
+      "rule_id": "P08-R3",
+      "when": "适用本判断面且使用资料、学习记录或派生建议时",
+      "decision": "逐维度声明可用证据、评价者与所需条件。允许部分、未评和不确定；模型自报置信度不当已校准概率，完成不自动转掌握。",
+      "rationale": "使专业选择可执行、可解释、可复核，保持通用判断与场景细则分离。",
+      "check": "相应场景有具体证据、好坏例与缺项行为；运行条件可检查，专业语义仍需审定。",
+      "on_unknown_or_failure": "保留未知、缩小结论或转人工；不补造证据，不自动发布正式判断。",
+      "inspiration_refs": "I02 / I04"
+    }
+  ],
+  "examples": {
+    "good": "数学过程需相应推理证据；程序测试只支持测试范围；口语维度需声音或适当直接观察。",
+    "bad": "自动把所有完成事件计成掌握，或由转写给发音结论。"
+  },
+  "required_domain_inputs": [
+    "领域质量维度",
+    "证据类型与限制",
+    "自动 / 人工评价的实际适用范围"
+  ],
+  "existing_basis": [
+    "完成 / 评阅 / 明确判断 / 人工迁移记录已有",
+    "维度证据契约已有候选，通用装配待补"
+  ],
+  "implementation_status": "loaded_by_policy_runtime_0.3.0_with_explicit_checks",
+  "validation": {
+    "domain_review": "NOT_REVIEWED",
+    "user_trial": "NOT_TESTED"
+  },
+  "maintenance": "按反例、作品和使用证据提出修订，经负责人审阅后发布；不得由一次会话自动改正式规则。",
+  "previous_version": "0.2.0",
+  "design_change": "保留专业判断框架与原规则；新增证据及执行边界",
+  "runtime_decision_contract": {
+    "inputs": [
+      "任务目标与条件",
+      "最少相关证据引用",
+      "学科 / 场景细则",
+      "可用能力"
+    ],
+    "outputs": [
+      "选用规则与版本",
+      "专业决定及理由",
+      "所需材料 / 操作",
+      "需要的证据与检查",
+      "缺项 / 冲突处理"
+    ],
+    "actors": "领域人员提供专业内容；Agent / 代码 / 人工执行；正式判断遵守实际权限。"
+  },
+  "execution_boundary": "通用运行检查已接入；专业语义和真实效果仍待审阅，不将本文件存在当验证。"
+}

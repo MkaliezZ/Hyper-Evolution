@@ -1,0 +1,12 @@
+.usage-guide-index nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.usage-guide-index .btn{text-align:left;white-space:normal;line-height:1.6}
+.usage-guide-chapter{scroll-margin-top:24px;line-height:1.9}
+.usage-guide-chapter h3{font-size:17px;margin-top:25px;margin-bottom:9px}
+.usage-guide-chapter p{margin:12px 0}
+.usage-guide-chapter ol{padding-left:26px}
+.usage-guide-chapter li{padding-left:4px;margin:9px 0}
+.usage-guide-table{overflow-x:auto;margin:18px 0}
+.usage-guide-table table{border-collapse:collapse;min-width:480px;width:100%;font-size:14px;line-height:1.7}
+.usage-guide-table th,.usage-guide-table td{padding:12px;border:1px solid var(--line,#ddd4c5);text-align:left;vertical-align:top}
+.usage-guide-table th{background:var(--sand,#eee7dc)}
+.usage-guide-chapter:focus{outline:2px solid var(--orange,#b75837);outline-offset:5px}

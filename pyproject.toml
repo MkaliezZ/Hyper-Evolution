@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hyper-evolution"
+version = "0.6.0rc1"
+description = "Hyper Evolution: local-first learning for teachers, students and self-learners"
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+base = ["page.html", "app/*.json", "app/knowledge/*.txt", "app/prompts/*.txt", "app/companion/aesthetic/packs/*.json", "app/companion/aesthetic/cases/*.json"]
+growth = ["static/*.html", "static/*.css", "static/*.js"]
+growth_local = ["static/*.html", "static/*.css", "static/*.js", "static/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

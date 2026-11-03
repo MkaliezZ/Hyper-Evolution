@@ -1,0 +1,30 @@
+# Learning data and credentials
+/data/
+.env
+.env.*
+!.env.example
+*.hgb
+*.sqlite*
+*.db
+*.log
+owner-token.txt
+device.json
+running.json
+qa-launch-url.txt
+# Local builds and environments
+.venv*/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.egg-info/
+/build/
+/dist/
+/releases/
+/.runtime/
+/.tools/
+/artifacts/*
+!/artifacts/.gitkeep
+node_modules/
+.coverage
+*.zip

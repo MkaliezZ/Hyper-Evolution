@@ -1,0 +1,81 @@
+{
+  "policy_id": "learning.policy.pace_and_continuity",
+  "design_index": "P09",
+  "version": "0.3.0",
+  "level": "domain",
+  "status": "candidate",
+  "owner_ref": null,
+  "name": "节奏、负担与持续学习",
+  "judgement_question": "现在推进、巩固、休息还是调整，依据是什么？",
+  "decision_outputs": [
+    "可行动的近期安排",
+    "任务负担与可选节奏",
+    "复习 / 停止条件",
+    "连续性说明"
+  ],
+  "rules": [
+    {
+      "rule_id": "P09-R1",
+      "when": "安排任务、复习或学习计划",
+      "decision": "结合目标、可用时间、已有表现和现实约束给可调整安排。",
+      "rationale": "能持续使用不等于无限加量，时长不能单独衡量进步。",
+      "check": "安排可执行且允许反馈修订。",
+      "on_unknown_or_failure": "信息不足时给有限选项，不伪造精准日程或掌握曲线。"
+    },
+    {
+      "rule_id": "P09-R2",
+      "when": "表现停滞、负担过高或活动结束",
+      "decision": "检查任务与方法，按需巩固、换活动、休息或结束。",
+      "rationale": "困难可能源于设计，不应只归因于不努力。",
+      "check": "停止 / 继续理由与目标和表现相关。",
+      "on_unknown_or_failure": "不从交互猜测心理或医学状态；只记录必要现实约束。"
+    },
+    {
+      "rule_id": "P09-R3",
+      "when": "适用本判断面且使用资料、学习记录或派生建议时",
+      "decision": "复习和路径为可解释、可调整的建议，参数需由场景说明。自报熟悉不覆盖正式判断；不把默认间隔称为个人遗忘曲线。",
+      "rationale": "使专业选择可执行、可解释、可复核，保持通用判断与场景细则分离。",
+      "check": "相应场景有具体证据、好坏例与缺项行为；运行条件可检查，专业语义仍需审定。",
+      "on_unknown_or_failure": "保留未知、缩小结论或转人工；不补造证据，不自动发布正式判断。",
+      "inspiration_refs": "I05 / I06 / I08"
+    }
+  ],
+  "examples": {
+    "good": "已有反馈待处理时先修订；时间有限时缩小本次目标，之后再调整。",
+    "bad": "为了留存强制打卡加量，把在线分钟数当学习收益。"
+  },
+  "required_domain_inputs": [
+    "任务规模和课程约束",
+    "真实可用时间",
+    "适用复习方式"
+  ],
+  "existing_basis": [
+    "profile.schedule 与普通 plan_next 已有",
+    "长期调度和跨科路径尚无验证"
+  ],
+  "implementation_status": "loaded_by_policy_runtime_0.3.0_with_explicit_checks",
+  "validation": {
+    "domain_review": "NOT_REVIEWED",
+    "user_trial": "NOT_TESTED"
+  },
+  "maintenance": "按反例、作品和使用证据提出修订，经负责人审阅后发布；不得由一次会话自动改正式规则。",
+  "previous_version": "0.2.0",
+  "design_change": "保留专业判断框架与原规则；新增证据及执行边界",
+  "runtime_decision_contract": {
+    "inputs": [
+      "任务目标与条件",
+      "最少相关证据引用",
+      "学科 / 场景细则",
+      "可用能力"
+    ],
+    "outputs": [
+      "选用规则与版本",
+      "专业决定及理由",
+      "所需材料 / 操作",
+      "需要的证据与检查",
+      "缺项 / 冲突处理"
+    ],
+    "actors": "领域人员提供专业内容；Agent / 代码 / 人工执行；正式判断遵守实际权限。"
+  },
+  "execution_boundary": "通用运行检查已接入；专业语义和真实效果仍待审阅，不将本文件存在当验证。"
+}

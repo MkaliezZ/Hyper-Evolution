@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "companion.capability.v6",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "request_id": {
+      "maxLength": 96,
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "operation": {
+      "enum": [
+        "review.context",
+        "review.list",
+        "review.capture",
+        "review.start",
+        "review.job",
+        "review.draft.save",
+        "review.draft.read",
+        "review.publish",
+        "review.settings",
+        "review.settings.save"
+      ],
+      "title": "Operation",
+      "type": "string"
+    },
+    "payload": {
+      "additionalProperties": true,
+      "title": "Payload",
+      "type": "object"
+    },
+    "peer_id": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Peer Id"
+    }
+  },
+  "required": [
+    "contract_version",
+    "request_id",
+    "operation"
+  ],
+  "title": "ReviewRequest",
+  "type": "object"
+}

@@ -1,0 +1,80 @@
+{
+  "policy_id": "learning.policy.support_and_agency",
+  "design_index": "P06",
+  "version": "0.3.0",
+  "level": "domain",
+  "status": "candidate",
+  "owner_ref": null,
+  "name": "帮助、参与与学习者主导",
+  "judgement_question": "AI、教师、伙伴分别做什么，怎样帮助而不替代？",
+  "decision_outputs": [
+    "本人责任",
+    "正常条件与额外帮助",
+    "支持策略及调整",
+    "求助 / 退出 / 替代方式"
+  ],
+  "rules": [
+    {
+      "rule_id": "P06-R1",
+      "when": "提供提示、示范或工具",
+      "decision": "按任务约定保留学习者应承担的部分；区分正常工具 / 互动与额外教学支持。",
+      "rationale": "独立是责任与条件的约定，不等于禁止合作或所有工具。",
+      "check": "本人产出与外部贡献可区分。",
+      "on_unknown_or_failure": "责任或条件不明时不作独立表现结论。"
+    },
+    {
+      "rule_id": "P06-R2",
+      "when": "学习者困难、求助或不愿继续",
+      "decision": "按目标调整帮助、负担或形式，允许说明不确定和选择替代。",
+      "rationale": "坚持无效步骤与替人完成都可能失去学习目标。",
+      "check": "用户知道如何继续、求助、调整或停止。",
+      "on_unknown_or_failure": "不以自动加题或人格评价回应困难。"
+    },
+    {
+      "rule_id": "P06-R3",
+      "when": "适用本判断面且使用资料、学习记录或派生建议时",
+      "decision": "把本人承担部分、正常互动 / 工具与额外提示分别记录；评价当前任务条件，不预设独立等于独处。",
+      "rationale": "使专业选择可执行、可解释、可复核，保持通用判断与场景细则分离。",
+      "check": "相应场景有具体证据、好坏例与缺项行为；运行条件可检查，专业语义仍需审定。",
+      "on_unknown_or_failure": "保留未知、缩小结论或转人工；不补造证据，不自动发布正式判断。",
+      "inspiration_refs": "I02 / I09"
+    }
+  ],
+  "examples": {
+    "good": "编程可讨论调试思路，若给完整修复则记录；口语伙伴正常追问不自动算提示。",
+    "bad": "AI 写完作品仍记本人掌握，或把主动澄清统一当失败。"
+  },
+  "required_domain_inputs": [
+    "本任务可用工具与合作条件",
+    "教师 / 学习者责任"
+  ],
+  "existing_basis": [
+    "角色与教师评阅基础已有",
+    "正常条件 / 额外帮助母本 0.2.0 已有设计"
+  ],
+  "implementation_status": "loaded_by_policy_runtime_0.3.0_with_explicit_checks",
+  "validation": {
+    "domain_review": "NOT_REVIEWED",
+    "user_trial": "NOT_TESTED"
+  },
+  "maintenance": "按反例、作品和使用证据提出修订，经负责人审阅后发布；不得由一次会话自动改正式规则。",
+  "previous_version": "0.2.0",
+  "design_change": "保留专业判断框架与原规则；新增证据及执行边界",
+  "runtime_decision_contract": {
+    "inputs": [
+      "任务目标与条件",
+      "最少相关证据引用",
+      "学科 / 场景细则",
+      "可用能力"
+    ],
+    "outputs": [
+      "选用规则与版本",
+      "专业决定及理由",
+      "所需材料 / 操作",
+      "需要的证据与检查",
+      "缺项 / 冲突处理"
+    ],
+    "actors": "领域人员提供专业内容；Agent / 代码 / 人工执行；正式判断遵守实际权限。"
+  },
+  "execution_boundary": "通用运行检查已接入；专业语义和真实效果仍待审阅，不将本文件存在当验证。"
+}

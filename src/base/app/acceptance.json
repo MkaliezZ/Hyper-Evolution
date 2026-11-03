@@ -1,0 +1,113 @@
+{
+  "answer": "我会先独立完成英文微诊断，依据错因补练，在新材料中复测，再和老师核对作品证据。",
+  "mode": "text",
+  "expected_status": "pending",
+  "expected_comment_contains": "等待维护者",
+  "companion_retrieval_acceptance": {
+    "positive": [
+      "index snapshots bind exact source revisions, chunks, tokenizer and retrieval config",
+      "same fixed labelled suite runs actual literal and BM25 paths and retains failures and false positives",
+      "source bytes and chunk positions are rechecked before returning evidence",
+      "each policy pack has original-source, learner-work and candidate-response positive and counterexamples",
+      "case assertions, declared teacher review, scoped pilot and real learning evidence remain distinct",
+      "v4 web and independent MCP share immutable receipts and restore through existing encrypted backup"
+    ],
+    "negative": [
+      "no superseded, revoked, wrong-student, private-note or answer-key content returned from indexes",
+      "image caption indexing is not OCR, pixel reading or multimodal embeddings",
+      "source invalidity and execution failure do not become ordinary no-match or silent positive results",
+      "changed labels or policy hashes cannot silently rewrite old comparisons and approvals",
+      "student or model cannot replace teacher role; confirmation is a declaration, not verified credentials",
+      "engineering case checks cannot auto-publish policy or prove semantic quality or learning effects"
+    ],
+    "tests": "tests/test_companion_retrieval.py; scripts/verify_companion_retrieval.py",
+    "domain_review": "NOT_REVIEWED",
+    "learning_effect": "NOT_TESTED"
+  },
+  "companion_continuity_acceptance": {
+    "positive": [
+      "loaded P01-P10 instructions participate in real design, explanations and assessment checks",
+      "six methods preserve distinct learning mechanisms; source, decisions and rule hashes freeze with each new activity",
+      "actual PNG/JPEG bytes cross signed pairing and are read by HTML, vision API and MCP ImageContent",
+      "bounded local memories retain sources, versions, explicit corrections and current authorization",
+      "personal retrieval events explain adjustable dates without updating teacher judgment",
+      "encrypted backup restores original bytes, memory versions and review events"
+    ],
+    "negative": [
+      "missing required media or targeted operation, question and criteria blocks publishing",
+      "one English question structure is not imposed on writing, listening, speaking or other subjects",
+      "corrupt or mismatched original image, region or version is rejected",
+      "revocation excludes image, memory and review context; changed evidence excludes stale memories from models",
+      "self reports, helped performance and model confidence cannot grant mastery or an official score",
+      "old contract schemas remain frozen; v1 read does not initialize v3 storage"
+    ],
+    "tests": "tests/test_policy_runtime.py, tests/test_companion_continuity.py, tests/test_companion_architecture.py; scripts/verify_companion_continuity.py",
+    "domain_review": "NOT_REVIEWED",
+    "learning_effect": "NOT_TESTED"
+  },
+  "companion_study_acceptance": {
+    "positive": [
+      "versioned source and method rationale are frozen when publishing",
+      "normal participation and extra help remain declared evidence",
+      "teacher review is appended and signed without overwriting original work",
+      "CSV/JSON preview is separate from pending import and content approval",
+      "model explanations must actually read and quote the source"
+    ],
+    "negative": [
+      "no targeted training without an operation, question and criteria",
+      "self reports and model suggestions cannot grant teacher mastery",
+      "formal judgment needs dimension observations",
+      "no invented quotation, unauthorized peer task or overwritten source version",
+      "duplicate imports cannot overwrite previously reviewed packs"
+    ],
+    "tests": "tests/test_companion_study.py and scripts/verify_companion_foundation.py --study"
+  },
+  "companion_foundation_acceptance": {
+    "positive": [
+      "self work and authorized teacher work use the same read projection",
+      "HTML and MCP return identical capability results for the same request",
+      "source references bind owner, content version and locator",
+      "historical reviews remain readable without regrading"
+    ],
+    "negative": [
+      "revoked pairing cannot resolve old references",
+      "teacher cannot read another student's task",
+      "caller actor scope cannot override the local role",
+      "credentials, private notes, unsubmitted drafts and answer keys are excluded",
+      "missing historical help conditions do not imply independence",
+      "unsupported media locators report unavailable"
+    ],
+    "tests": "tests/test_companion_foundation.py, tests/test_companion_architecture.py and scripts/verify_local_mcp.py"
+  },
+  "pairing_acceptance": {
+    "positive": [
+      "student with a valid code is paired without losing work",
+      "legacy profiles keep their existing access on upgrade"
+    ],
+    "negative": [
+      "role choice never grants teacher privileges",
+      "unpaired student data is unavailable to teacher web and MCP",
+      "expired, revoked and reused codes fail",
+      "unpair revokes teacher access while student records remain"
+    ],
+    "tests": "tests/test_pairing.py and scripts/verify_growth_mcp.py"
+  },
+  "workspace_ui_acceptance": {
+    "positive": [
+      "role-specific navigation exposes tasks, feedback, materials and settings directly",
+      "teacher review aggregates only currently paired students",
+      "source task can be assigned, submitted, reviewed and revised through visible entries",
+      "unimplemented v0.2 functions are explicitly identified",
+      "search, state filters, browser history and dialog focus work"
+    ],
+    "negative": [
+      "queued transmission is not teacher receipt or review",
+      "automatic answer checks are not formal teacher judgments",
+      "new revision is not hidden behind old feedback",
+      "planned functionality has no fake action button",
+      "normal source learning is not forced through English diagnosis",
+      "recording must be saved before navigating away"
+    ],
+    "tests": "tests/workspace-state.test.cjs; artifacts/workspace-ux-browser.json; original companion architecture/foundation/study regressions"
+  }
+}

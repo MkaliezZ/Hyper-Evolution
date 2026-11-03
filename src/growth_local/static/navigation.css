@@ -1,0 +1,32 @@
+/* View navigation and category filters share the existing paper palette. */
+.subject-library-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.workspace-content .local-top:has(.subject-library-actions){gap:24px;align-items:start}
+.subject-library-controls{padding:18px 0 22px;border-block:1px solid var(--line);margin:8px 0 24px}
+.subject-filter-heading{display:flex;justify-content:space-between;gap:16px;font-size:13px}
+.subject-library-controls{flex-wrap:wrap}
+.subject-library-controls .small{overflow-wrap:anywhere;max-width:100%}
+.subject-folder{max-width:100%;color:var(--muted);font-size:12px}
+.subject-folder summary{cursor:pointer;min-height:24px}
+.subject-folder code{display:block;margin-top:10px;overflow-wrap:anywhere;max-width:600px;font-size:11px}
+.subject-filters{margin:14px 0 0;gap:8px}
+.subject-filters button{min-height:44px;display:flex;gap:10px;align-items:center}
+.subject-filters button span{font-variant-numeric:tabular-nums;opacity:.75}
+.subject-filters button:focus-visible,.workspace-sidebar button:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.subject-category{display:inline-block;font-size:11px;color:var(--muted);border:1px solid var(--line);padding:2px 7px;border-radius:4px;margin-bottom:6px}
+.subject-library-notice{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 18px;margin-bottom:22px;background:var(--sand);border-left:3px solid var(--orange);font-size:13px}
+.subject-library-notice .btn{flex:none}
+.workspace-menu-toggle{display:none}
+@media(max-width:760px){
+    .workspace-menu-toggle{display:block;min-height:44px;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:7px;background:var(--sheet);text-align:left;color:var(--ink)}
+    .workspace-sidebar nav{display:none}
+    .workspace-sidebar.is-open nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible;gap:18px 12px;padding-top:18px}
+    .workspace-sidebar nav .workspace-nav-group,.workspace-sidebar nav .academic-domain-nav{display:block;min-width:0}
+    .workspace-sidebar nav .workspace-nav-group>p{display:block;margin:0 0 6px;font-size:11px}
+    .workspace-sidebar nav button{width:100%;white-space:normal;min-height:44px;text-align:left}
+    .workspace-sidebar nav .academic-route-subnav{display:block;margin:4px 0 0 8px;padding-left:4px}
+    .workspace-content .local-top:has(.subject-library-actions){flex-direction:column;gap:12px}
+    .subject-filters button{flex:1 0 auto;justify-content:center}
+    .subject-library-notice{align-items:start;flex-direction:column;gap:4px}
+    #subject-material-library .local-task,#continuity-pages .local-task{flex-direction:column;align-items:stretch;gap:12px}
+    #subject-material-library .actions,#continuity-pages .actions{flex-wrap:wrap}
+}

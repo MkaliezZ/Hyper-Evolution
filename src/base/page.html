@@ -1,0 +1,69 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>base · 我的伴学</title>
+<style>body{font:17px/1.7 system-ui;background:#f3f6f2;color:#18342b;margin:0}main{max-width:800px;margin:45px auto;padding:24px}section,article{background:white;border:1px solid #dce5dc;border-radius:14px;padding:24px;margin:18px 0}h1{font-size:32px}label{display:block}input,textarea,button,select{font:inherit;box-sizing:border-box;padding:10px;border:1px solid #aabdaf;border-radius:7px}input,textarea,select{width:100%;margin:8px 0}button{background:#205c43;color:white;cursor:pointer;margin:8px 8px 0 0}button:disabled{opacity:.5;cursor:default}textarea{min-height:110px}p{white-space:pre-wrap}small{color:#53665b}a{color:#205c43}#message{color:#8c3c17;white-space:pre-wrap}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style>
+<main><small>base / 独立开发的教育伴学</small><h1 id="title">我的伴学</h1><div id="message" role="status"></div><div id="content"></div></main>
+<script>
+const content=document.getElementById('content'),message=document.getElementById('message');
+function el(tag,text,parent=content){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;parent.append(e);return e}
+function key(){return globalThis.crypto?.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36)}
+function field(parent,label,value='',tag='input'){const wrapper=el('label',label,parent),input=el(tag,undefined,wrapper);input.value=value;input.setAttribute('aria-label',label);return input}
+function select(parent,label,choices,value){const input=field(parent,label,'','select');for(const [id,text] of choices){const option=el('option',text,input);option.value=id}input.value=value??choices[0][0];return input}
+async function api(url,body){const r=await fetch(url,body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await r.json();if(!r.ok)throw Error(data.error||'请求失败');return data}
+function guard(fn){return async()=>{message.textContent='';try{await fn()}catch(e){message.textContent=e.message}}}
+const token=location.pathname.startsWith('/learn/')?location.pathname.split('/')[2]:null;
+async function show(){content.replaceChildren();if(token){await learner();return}try{await manager()}catch(e){if(e.message==='请先登录维护者入口')login();else message.textContent=e.message}}
+function login(){content.replaceChildren();const box=el('section');el('h2','维护者登录',box);el('p','打开启动终端提示的 owner-token.txt，复制管理口令（默认 data/base/owner-token.txt）。',box);const input=field(box,'管理口令');input.type='password';el('button','登录',box).onclick=guard(async()=>{await api('/api/login',{token:input.value});await show()})}
+function sources(activity,parent){for(const s of activity.sources||[])el('small','资料：'+s.title+' · '+s.locator+' · '+(s.verification_status==='verified'?'已人工核验':'待人工核验'),el('p',undefined,parent))}
+function displayActivity(activity,parent){el('h3',activity.activity_title,parent);if(activity.goal)el('p','学习目标：'+activity.goal,parent);el('p',activity.material,parent);sources(activity,parent);el('p',activity.instructions,parent);if(activity.deliverable)el('p','应交成果：'+activity.deliverable,parent);el('p','评价依据：'+activity.criteria,parent);el('p','活动下一步：'+activity.next_step,parent)}
+function activityDraftForm(parent,preview){
+ const detail=el('details',undefined,parent);el('summary','调整本次活动（可选）',detail);el('p','本次调整只用于新活动；已发布记录保留原内容。资料、量规与结构提示沿用当前配置。',detail);
+ const mode=select(detail,'本次提交方式',[['text','文字作品，等待反馈'],['numeric','数值等值判断']],preview.mode),fields={};
+ for(const [id,label,tag] of [['activity_title','本次活动标题','input'],['goal','本次学习目标','input'],['deliverable','本次应交成果','input'],['instructions','本次提交要求','textarea'],['criteria','本次评价依据','textarea'],['next_step','本次活动下一步','input'],['assessment_version','本次评价版本','input']])fields[id]=field(detail,label,preview[id]||'',tag);
+ const expected=field(detail,'数值参考答案（仅维护者可见）',preview.expected??'');const toggle=()=>{expected.parentElement.hidden=mode.value!=='numeric'};mode.onchange=toggle;toggle();
+ return ()=>{const draft={...preview,mode:mode.value};for(const [id,input] of Object.entries(fields)){if(['goal','deliverable','assessment_version'].includes(id)&&!input.value.trim())delete draft[id];else draft[id]=input.value}if(mode.value==='numeric')draft.expected=expected.value;else delete draft.expected;return draft};
+}
+function profileForm(parent,person,schema){
+ const detail=el('details',undefined,parent);el('summary',person?'修改学习档案':'单独建立学习档案（可选）',detail);const name=field(detail,'称呼',person?.name||''),inputs={};
+ for(const [id,label] of [['goal','学习目标'],['prior_experience','已有经验'],['stage','当前阶段'],['schedule','时间安排'],['progress_note','进度备注']])inputs[id]=field(detail,label,person?.profile[id]||'');
+ const resources=field(detail,'资料名称或位置（每行一项）',(person?.profile.resources||[]).join('\n'),'textarea');const extras=[];
+ const properties=schema?.$defs?.SubjectFields?.properties||{};
+ for(const [id,rule] of Object.entries(properties)){
+  const label=rule.title||id,value=person?.profile.extensions?.[id]??rule.default;let input,kind;
+  if(Array.isArray(rule.enum)){kind='enum';input=select(detail,label,rule.enum.map(v=>[JSON.stringify(v),String(v)]),JSON.stringify(value??rule.enum[0]))}
+  else if(rule.type==='boolean'){kind='boolean';input=select(detail,label,[['false','否'],['true','是']],String(value??false))}
+  else if(['string','number','integer'].includes(rule.type)){kind=rule.type;input=field(detail,label,value??'');if(kind!=='string'){input.type='number';input.step=kind==='integer'?'1':'any'}if(rule.maxLength)input.maxLength=rule.maxLength}
+  else{el('p',label+'：此项需要本应用提供专用输入。',detail);continue}
+  if(rule.description)el('small',rule.description,detail);extras.push({id,kind,input});
+ }
+ const operation=key();el('button','保存档案',detail).onclick=guard(async()=>{const profile={extensions:{...(person?.profile.extensions||{})}};for(const [id,input] of Object.entries(inputs))profile[id]=input.value;profile.resources=resources.value.split('\n').map(v=>v.trim()).filter(Boolean);for(const {id,kind,input} of extras){if(kind==='enum'||kind==='boolean')profile.extensions[id]=JSON.parse(input.value);else if(kind==='string')profile.extensions[id]=input.value;else if(input.value==='')delete profile.extensions[id];else{const value=Number(input.value);if(!Number.isFinite(value))throw Error('请填写有效的档案数值');profile.extensions[id]=value}}await api('/api/learners',{name:name.value,profile,learner_id:person?.id,request_key:operation});await show()});
+}
+async function manager(){
+ const data=await api('/api/manage'),roles=data.teaching.roles;
+ document.getElementById('title').textContent=data.preview.name;
+ const rules=el('details');el('summary','通用学习约定',rules);for(const p of data.teaching.principles)el('p',p,rules);
+ const box=el('section');el('h2',roles.maintainer+' · 预览当前活动',box);displayActivity(data.preview,box);for(const warning of data.check.warnings)el('small',warning,el('p',undefined,box));
+ const getDraft=activityDraftForm(box,data.preview);
+ const selected=select(box,'选择学习者',[['','新学习者，单独建档'],...data.learners.map((p,i)=>[p.id,p.name+' · 档案'+(i+1)+' · '+(p.profile.goal||'尚未填写目标')])]);
+ const input=field(box,'新学习者称呼');selected.onchange=()=>{input.disabled=Boolean(selected.value)};const createKey=key();
+ el('button','确认内容，创建学习链接',box).onclick=guard(async()=>{const person=data.learners.find(p=>p.id===selected.value);await api('/api/tasks',{learner:person?person.name:input.value,learner_id:person?.id,draft:getDraft(),request_key:createKey});await show()});
+ const profiles=el('section');el('h2','学习档案与成长',profiles);profileForm(profiles,null,data.profile_schema);
+ for(const [i,p] of data.learners.entries()){const card=el('article',undefined,profiles);el('h3',p.name+' · 档案'+(i+1),card);if(p.profile.goal)el('p','目标：'+p.profile.goal,card);profileForm(card,p,data.profile_schema);el('button','查看成长与下一步',card).onclick=guard(async()=>{const result=await api('/api/growth/'+p.id);let area=card.querySelector('[data-growth]');if(!area){area=el('div',undefined,card);area.dataset.growth='true'}area.replaceChildren();const g=result.growth;el('p','已发布活动 '+g.encountered+' · 已有提交 '+g.completed+' · 最新作品达标 '+g.meets_criteria+' · 已核验独立迁移 '+g.independent_transfer,area);el('small',g.meaning,area);el('p','建议：'+result.plan.suggestion,area)})}
+ const tasks=el('section');el('h2','已创建的活动',tasks);
+ for(const t of data.tasks){const index=data.learners.findIndex(p=>p.id===t.learner_id);const card=el('article',undefined,tasks);el('p',t.learner+' · 档案'+(index+1)+' · '+t.created.slice(0,16)+' · '+({active:'进行中',paused:'已暂停',archived:'已归档'}[t.state]),card);el('a','打开学习链接',card).href='/learn/'+encodeURIComponent(t.token);if(t.state!=='archived'){for(const [state,label] of [[t.state==='active'?'paused':'active',t.state==='active'?'暂停':'恢复'],['archived','归档（只读）']])el('button',label,card).onclick=guard(async()=>{await api('/api/tasks/'+t.id+'/state',{state});await show()})}}
+ const records=el('section');el('h2','提交与反馈',records);if(!data.submissions.length)el('p','还没有提交。先打开学习链接完成一次活动。',records);
+ for(const s of data.submissions){const card=el('article',undefined,records),t=data.tasks.find(t=>t.id===s.task_id);el('h3',(t?t.learner:roles.learner)+' · '+s.created.slice(0,16),card);el('p',s.answer,card);showEvaluation(s.evaluation,card);if(t?.state==='archived'){el('small','已归档，只读。',card);continue}
+ const scoreInputs=[];for(const rule of t?.rubric||[]){const f=field(card,'得分：'+rule.label);f.type='number';f.min='0';f.max=String(rule.max_score);f.step='any';f.placeholder='满分 '+rule.max_score+'；可选，如录入须填全维度';scoreInputs.push({rule,field:f})}
+ const comment=field(card,'反馈','','textarea');comment.placeholder=data.teaching.feedback_reference;const next=field(card,'下一步行动');const judgement=select(card,'本次作品判定',[['','仅记录反馈，尚未确认达标'],['needs_revision','需要修订'],['meets_criteria','依据本活动标准达标']]);const feedbackKey=key();
+ el('button','保存反馈',card).onclick=guard(async()=>{const filled=scoreInputs.filter(v=>v.field.value!=='');if(filled.length&&filled.length!==scoreInputs.length)throw Error('分项得分请填写全部维度，或全部留空');const body={comment:comment.value,next_step:next.value,judgement:judgement.value||null,request_key:feedbackKey};if(filled.length)body.scores=filled.map(v=>({label:v.rule.label,score:Number(v.field.value)}));await api('/api/feedback/'+s.id,body);await show()});
+ if(s.evaluation.judgement==='meets_criteria'){const detail=el('details',undefined,card);el('summary','核验一次独立迁移（可选）',detail);el('p','仅在本次作品来自新情境且确为独立完成时记录。分数本身不能证明迁移。',detail);const context=field(detail,'新情境与独立完成条件');const confirm=select(detail,'独立完成确认',[['','尚未确认'],['yes','已人工核验独立完成']]);el('button','记录核验',detail).onclick=guard(async()=>{await api('/api/transfer/'+s.id,{context:context.value,independent:confirm.value==='yes'});message.textContent='已保存本次核验；可在成长记录查看。'})}
+ }
+ el('button','退出维护者登录').onclick=guard(async()=>{await api('/api/logout',{});await show()});
+}
+async function learner(){
+ const data=await api('/api/learn/'+encodeURIComponent(token));document.getElementById('title').textContent=data.activity.name;const box=el('section');el('small','学习者：'+data.learner,box);displayActivity(data.activity,box);
+ if(data.state==='active'){const answer=field(box,'我的提交','','textarea');answer.placeholder='在这里写下答案、作品、过程或观察说明';const operation=key(),button=el('button','提交',box);button.onclick=guard(async()=>{button.disabled=true;try{await api('/api/learn/'+encodeURIComponent(token),{answer:answer.value,request_key:operation});await show()}finally{button.disabled=false}})}else el('p',data.state==='paused'?'活动已暂停，已有记录可查看。':'活动已归档，已有记录只读。',box);
+ el('button','刷新反馈',box).onclick=guard(show);
+ for(const s of data.submissions){const card=el('section');el('small',s.created,card);el('p',s.answer,card);el('h3',s.evaluation.status==='pending'?'等待反馈':'反馈',card);showEvaluation(s.evaluation,card);el('p','下一步：'+s.evaluation.next_step,card)}
+}
+function showEvaluation(evaluation,parent){el('p',evaluation.comment,parent);if(evaluation.judgement)el('strong',evaluation.judgement==='meets_criteria'?'本次作品：达标':'本次作品：需要修订',parent);if(evaluation.scores){for(const row of evaluation.scores)el('p',row.label+'：'+row.score+' / '+row.max_score,parent);el('strong','总分：'+evaluation.total+' / '+evaluation.max_total,parent)}}
+guard(show)();
+</script></html>

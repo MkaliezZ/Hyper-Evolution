@@ -1,0 +1,351 @@
+{
+  "experience.read": {
+    "additionalProperties": false,
+    "properties": {},
+    "title": "Empty",
+    "type": "object"
+  },
+  "experience.select": {
+    "additionalProperties": false,
+    "properties": {
+      "experience": {
+        "enum": [
+          "teacher",
+          "student",
+          "self"
+        ],
+        "title": "Experience",
+        "type": "string"
+      }
+    },
+    "required": [
+      "experience"
+    ],
+    "title": "Select",
+    "type": "object"
+  },
+  "self.context": {
+    "additionalProperties": false,
+    "properties": {},
+    "title": "Empty",
+    "type": "object"
+  },
+  "self.start": {
+    "$defs": {
+      "Source": {
+        "additionalProperties": false,
+        "properties": {
+          "material_id": {
+            "anyOf": [
+              {
+                "maxLength": 64,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Material Id"
+          },
+          "page_id": {
+            "anyOf": [
+              {
+                "maxLength": 64,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Page Id"
+          },
+          "task_id": {
+            "anyOf": [
+              {
+                "maxLength": 128,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Task Id"
+          },
+          "revision": {
+            "anyOf": [
+              {
+                "minimum": 1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Revision"
+          },
+          "source_hash": {
+            "anyOf": [
+              {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Hash"
+          },
+          "start": {
+            "default": 0,
+            "minimum": 0,
+            "title": "Start",
+            "type": "integer"
+          },
+          "end": {
+            "anyOf": [
+              {
+                "minimum": 1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "End"
+          },
+          "region": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Region"
+          }
+        },
+        "title": "Source",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "source": {
+        "$ref": "#/$defs/Source"
+      },
+      "goal": {
+        "maxLength": 1000,
+        "minLength": 1,
+        "title": "Goal",
+        "type": "string"
+      },
+      "subject": {
+        "default": "general",
+        "maxLength": 80,
+        "minLength": 1,
+        "title": "Subject",
+        "type": "string"
+      },
+      "scenario": {
+        "default": "general",
+        "enum": [
+          "general",
+          "rhetorical_purpose",
+          "listening",
+          "writing",
+          "speaking",
+          "math_concept",
+          "debugging",
+          "visual_reading"
+        ],
+        "title": "Scenario",
+        "type": "string"
+      },
+      "method": {
+        "default": "understand",
+        "enum": [
+          "understand",
+          "inquire",
+          "targeted",
+          "apply",
+          "review",
+          "reflect"
+        ],
+        "title": "Method",
+        "type": "string"
+      },
+      "obstacle": {
+        "default": "",
+        "maxLength": 1000,
+        "title": "Obstacle",
+        "type": "string"
+      },
+      "target_operation": {
+        "default": "",
+        "maxLength": 1000,
+        "title": "Target Operation",
+        "type": "string"
+      },
+      "question": {
+        "default": "",
+        "maxLength": 2000,
+        "title": "Question",
+        "type": "string"
+      },
+      "criteria": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 8,
+        "title": "Criteria",
+        "type": "array"
+      },
+      "form": {
+        "default": "",
+        "maxLength": 100,
+        "title": "Form",
+        "type": "string"
+      },
+      "form_reason": {
+        "default": "",
+        "maxLength": 1000,
+        "title": "Form Reason",
+        "type": "string"
+      },
+      "normal_conditions": {
+        "default": "",
+        "maxLength": 1000,
+        "title": "Normal Conditions",
+        "type": "string"
+      },
+      "learner_responsibility": {
+        "default": "",
+        "maxLength": 1000,
+        "title": "Learner Responsibility",
+        "type": "string"
+      },
+      "minutes": {
+        "default": 10,
+        "maximum": 120,
+        "minimum": 2,
+        "title": "Minutes",
+        "type": "integer"
+      },
+      "independent_claim": {
+        "default": false,
+        "title": "Independent Claim",
+        "type": "boolean"
+      },
+      "additional_help": {
+        "default": "",
+        "maxLength": 800,
+        "title": "Additional Help",
+        "type": "string"
+      },
+      "proposed_conclusion": {
+        "default": "this_work",
+        "enum": [
+          "this_work",
+          "long_term_mastery",
+          "official_exam_level"
+        ],
+        "title": "Proposed Conclusion",
+        "type": "string"
+      }
+    },
+    "required": [
+      "source",
+      "goal"
+    ],
+    "title": "ActivityCreate",
+    "type": "object"
+  },
+  "self.feedback_context": {
+    "additionalProperties": false,
+    "properties": {
+      "task_id": {
+        "maxLength": 128,
+        "minLength": 1,
+        "title": "Task Id",
+        "type": "string"
+      },
+      "submission_id": {
+        "maxLength": 128,
+        "minLength": 1,
+        "title": "Submission Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "task_id",
+      "submission_id"
+    ],
+    "title": "Work",
+    "type": "object"
+  },
+  "self.reflect": {
+    "additionalProperties": false,
+    "properties": {
+      "task_id": {
+        "maxLength": 128,
+        "minLength": 1,
+        "title": "Task Id",
+        "type": "string"
+      },
+      "submission_id": {
+        "maxLength": 128,
+        "minLength": 1,
+        "title": "Submission Id",
+        "type": "string"
+      },
+      "outcome": {
+        "default": "ungraded",
+        "enum": [
+          "ungraded",
+          "partial",
+          "needs_revision"
+        ],
+        "title": "Outcome",
+        "type": "string"
+      },
+      "comment": {
+        "maxLength": 4000,
+        "minLength": 1,
+        "title": "Comment",
+        "type": "string"
+      },
+      "next_step": {
+        "maxLength": 2000,
+        "minLength": 1,
+        "title": "Next Step",
+        "type": "string"
+      },
+      "schedule_review": {
+        "default": true,
+        "title": "Schedule Review",
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "task_id",
+      "submission_id",
+      "comment",
+      "next_step"
+    ],
+    "title": "Reflection",
+    "type": "object"
+  }
+}

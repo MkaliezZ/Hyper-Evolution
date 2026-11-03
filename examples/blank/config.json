@@ -1,0 +1,21 @@
+{
+  "name": "待命名的伴学",
+  "activity_title": "待填写：一个可观察的小活动",
+  "goal": "待填写：完成后能做什么",
+  "deliverable": "待填写：学习者应提交什么成果或证据",
+  "instructions": "待填写：如何完成并提交",
+  "criteria": "待填写：根据什么判断本次成果",
+  "next_step": "待填写：反馈后如何修订或再验证",
+  "mode": "text",
+  "assessment_version": "1",
+  "sources": [
+    {
+      "title": "待替换资料",
+      "file": "knowledge/material.txt",
+      "locator": "全文",
+      "version": "1",
+      "extraction_status": "readable",
+      "verification_status": "unverified"
+    }
+  ]
+}

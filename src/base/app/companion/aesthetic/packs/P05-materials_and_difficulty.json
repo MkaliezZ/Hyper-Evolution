@@ -1,0 +1,81 @@
+{
+  "policy_id": "learning.policy.materials_and_difficulty",
+  "design_index": "P05",
+  "version": "0.3.0",
+  "level": "domain",
+  "status": "candidate",
+  "owner_ref": null,
+  "name": "素材、情境与难度",
+  "judgement_question": "用什么内容与条件，既贴合目标又有适当挑战？",
+  "decision_outputs": [
+    "素材要求",
+    "适用难度与负担",
+    "上下文与任务条件",
+    "兴趣适配及拒绝条件"
+  ],
+  "rules": [
+    {
+      "rule_id": "P05-R1",
+      "when": "选择教材、例子、题目或媒体",
+      "decision": "先满足目标、知识、来源和使用范围，再考虑兴趣与形式。",
+      "rationale": "有趣素材若不支撑目标操作，会造成表面活跃。",
+      "check": "说明内容如何服务目标及使用边界。",
+      "on_unknown_or_failure": "来源、配套或关键条件不明时不当正式材料。"
+    },
+    {
+      "rule_id": "P05-R2",
+      "when": "调整难度或情境",
+      "decision": "区分目标挑战与无关负担；结合观察调整，不默认越难、越新或越娱乐越好。",
+      "rationale": "词汇、界面、背景知识和工具负担可能遮蔽目标表现。",
+      "check": "变化后仍能观察原目标，且记录必要条件。",
+      "on_unknown_or_failure": "难度未标定则说明，不能冒充官方等值或稳定分级。"
+    },
+    {
+      "rule_id": "P05-R3",
+      "when": "适用本判断面且使用资料、学习记录或派生建议时",
+      "decision": "素材应可定位到授权版本；图、声音与文字按任务需要配套。导入、解析、索引、专业审核和任务适配分别判断。",
+      "rationale": "使专业选择可执行、可解释、可复核，保持通用判断与场景细则分离。",
+      "check": "相应场景有具体证据、好坏例与缺项行为；运行条件可检查，专业语义仍需审定。",
+      "on_unknown_or_failure": "保留未知、缩小结论或转人工；不补造证据，不自动发布正式判断。",
+      "inspiration_refs": "I01 / I03 / I04 / I07"
+    }
+  ],
+  "examples": {
+    "good": "听力先确保真人录音与题文配套；数学控制不相关计算量；编程示例说明环境。",
+    "bad": "只因热门话题就选入，或难度标签未经核验直接作为能力等级。"
+  },
+  "required_domain_inputs": [
+    "学科素材特征",
+    "前提与难度线索",
+    "使用许可和媒体条件"
+  ],
+  "existing_basis": [
+    "题包审核 / 音频哈希和试听声明已有",
+    "跨学科素材索引与适配待建"
+  ],
+  "implementation_status": "loaded_by_policy_runtime_0.3.0_with_explicit_checks",
+  "validation": {
+    "domain_review": "NOT_REVIEWED",
+    "user_trial": "NOT_TESTED"
+  },
+  "maintenance": "按反例、作品和使用证据提出修订，经负责人审阅后发布；不得由一次会话自动改正式规则。",
+  "previous_version": "0.2.0",
+  "design_change": "保留专业判断框架与原规则；新增证据及执行边界",
+  "runtime_decision_contract": {
+    "inputs": [
+      "任务目标与条件",
+      "最少相关证据引用",
+      "学科 / 场景细则",
+      "可用能力"
+    ],
+    "outputs": [
+      "选用规则与版本",
+      "专业决定及理由",
+      "所需材料 / 操作",
+      "需要的证据与检查",
+      "缺项 / 冲突处理"
+    ],
+    "actors": "领域人员提供专业内容；Agent / 代码 / 人工执行；正式判断遵守实际权限。"
+  },
+  "execution_boundary": "通用运行检查已接入；专业语义和真实效果仍待审阅，不将本文件存在当验证。"
+}

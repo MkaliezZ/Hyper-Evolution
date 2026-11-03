@@ -1,0 +1,22 @@
+.experience-caption{font-size:12px;color:var(--muted,#766e62);letter-spacing:.07em;margin:6px 0 18px}
+.experience-context{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 25px;padding-bottom:16px;border-bottom:1px solid var(--line,#ded8cd)}
+.experience-context>span{font-size:12px;letter-spacing:.08em;margin-right:10px;color:#766e62}
+.experience-context button{border:1px solid transparent;background:transparent;padding:9px 13px;border-radius:7px;color:#665e52;cursor:pointer;font:inherit;font-size:14px}
+.experience-context button[aria-current=page]{color:#a9472a;background:#f0dfd0;border-color:#dfbaa4}
+.experience-context button:hover{background:#eee7dc;color:#27241f}
+.experience-utilities{margin-top:18px;border-top:1px solid #dcd5c8;padding-top:16px}
+.experience-utilities summary{font-size:13px;cursor:pointer;padding:10px 8px;color:#766e62}
+.experience-mode{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.experience-mode button{flex:1 1 100%;min-height:36px;padding:8px 10px;font:inherit;font-size:12px;border:1px solid #d7ccbc;border-radius:7px;background:transparent;cursor:pointer}
+.experience-mode button[aria-pressed=true]{background:#26251f;color:#fbf6ec}
+.experience-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:20px 0 30px}
+.experience-step{border:1px solid #ded5c7;border-radius:10px;background:#faf7f0;padding:16px;text-align:left;font:inherit;cursor:pointer;color:#302b25}
+.experience-step b{display:block;font-size:12px;color:#ad4f32;margin-bottom:12px}
+.experience-step strong{display:block;margin-bottom:7px}
+.experience-step span{font-size:12px;line-height:1.6;color:#766e62}
+.experience-feedback{border-left:3px solid #bd5c3c}
+.experience-feedback h2{margin-top:0}
+.experience-feedback .actions{flex-wrap:wrap}
+.experience-context button:focus-visible,.experience-step:focus-visible,.experience-mode button:focus-visible{outline:3px solid #c96843;outline-offset:3px}
+@media(max-width:1000px){.experience-steps{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.experience-steps{grid-template-columns:1fr 1fr}.experience-context{gap:3px}.experience-context button{padding:9px}.experience-context>span{width:100%;margin-bottom:6px}}

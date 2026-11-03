@@ -1,0 +1,8 @@
+.continuity-original{display:block;width:100%;height:auto;max-height:680px;object-fit:contain;object-position:left top;border:1px solid var(--line);background:#fff;margin:18px 0}
+.continuity-task-tools{flex-wrap:wrap;align-self:end}
+.workspace-task-next:has(.continuity-task-tools){flex-wrap:wrap}
+#continuity-design-preview{margin-top:24px}
+#continuity-design-preview details{margin:20px 0}
+#continuity-design-detail{padding:12px 0}
+#continuity-design-detail label{margin-top:16px}
+.workspace-content .agent-output{overflow-wrap:anywhere}

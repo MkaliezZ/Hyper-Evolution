@@ -1,0 +1,7 @@
+{
+  "answer": "合成验收提交：只检查待评与存储，不验证真实业务。",
+  "mode": "text",
+  "expected_status": "pending",
+  "expected_correct": null,
+  "expected_comment_contains": "等待维护者"
+}

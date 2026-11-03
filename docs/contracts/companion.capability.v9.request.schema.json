@@ -1,0 +1,51 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "companion.capability.v9",
+      "default": "companion.capability.v9",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "request_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "operation": {
+      "enum": [
+        "planning.context",
+        "planning.read",
+        "planning.save",
+        "planning.share"
+      ],
+      "title": "Operation",
+      "type": "string"
+    },
+    "peer_id": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Peer Id"
+    },
+    "payload": {
+      "additionalProperties": true,
+      "title": "Payload",
+      "type": "object"
+    }
+  },
+  "required": [
+    "request_id",
+    "operation"
+  ],
+  "title": "PlanningRequest",
+  "type": "object"
+}

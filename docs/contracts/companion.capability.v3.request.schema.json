@@ -1,0 +1,62 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "companion.capability.v3",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "request_id": {
+      "maxLength": 96,
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "operation": {
+      "enum": [
+        "policy.catalog",
+        "policy.plan",
+        "policy.task",
+        "page.save",
+        "page.list",
+        "page.read",
+        "activity.create",
+        "memory.capture",
+        "memory.list",
+        "memory.correct",
+        "memory.visibility",
+        "review.create",
+        "review.list",
+        "review.record",
+        "review.adjust"
+      ],
+      "title": "Operation",
+      "type": "string"
+    },
+    "payload": {
+      "additionalProperties": true,
+      "title": "Payload",
+      "type": "object"
+    },
+    "peer_id": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Peer Id"
+    }
+  },
+  "required": [
+    "contract_version",
+    "request_id",
+    "operation"
+  ],
+  "title": "ContinuityRequest",
+  "type": "object"
+}

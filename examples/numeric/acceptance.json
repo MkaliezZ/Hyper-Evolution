@@ -1,0 +1,7 @@
+{
+  "mode": "numeric",
+  "answer": "0.5",
+  "expected_status": "reviewed",
+  "expected_correct": true,
+  "expected_comment_contains": "数值等值"
+}

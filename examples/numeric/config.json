@@ -1,0 +1,22 @@
+{
+  "name": "分数伴学",
+  "activity_title": "把分数写成小数",
+  "instructions": "将 1/2 写成小数。",
+  "criteria": "数值与给定分数等值。",
+  "next_step": "再写一个与 1/2 等值的分数。",
+  "mode": "numeric",
+  "expected": "1/2",
+  "goal": "能识别分数与小数的数值等值关系。",
+  "deliverable": "提交一个与题目中分数等值的小数。",
+  "assessment_version": "1",
+  "sources": [
+    {
+      "title": "开发包自编示例（使用前核验）",
+      "file": "knowledge/material.txt",
+      "locator": "全文",
+      "version": "1",
+      "extraction_status": "readable",
+      "verification_status": "unverified"
+    }
+  ]
+}

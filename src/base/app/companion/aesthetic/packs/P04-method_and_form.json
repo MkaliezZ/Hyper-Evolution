@@ -1,0 +1,80 @@
+{
+  "policy_id": "learning.policy.method_and_form",
+  "design_index": "P04",
+  "version": "0.3.0",
+  "level": "domain",
+  "status": "candidate",
+  "owner_ref": null,
+  "name": "方法与活动形式",
+  "judgement_question": "当前应讲解、探究、练习、应用还是复盘，为什么？",
+  "decision_outputs": [
+    "方法选择与理由",
+    "备选和适用边界",
+    "活动形式",
+    "需要的执行能力"
+  ],
+  "rules": [
+    {
+      "rule_id": "P04-R1",
+      "when": "组织本次学习活动",
+      "decision": "按目标和证据选择方法，允许直接讲解、讨论、练习、应用、复习或复盘。",
+      "rationale": "专项训练是方法库的一支，不应主导全部学习。",
+      "check": "所选活动确实使学习者完成目标相关操作。",
+      "on_unknown_or_failure": "不知道用何种方法时先澄清任务或用可审阅小样。"
+    },
+    {
+      "rule_id": "P04-R2",
+      "when": "选择专项训练或更换形式",
+      "decision": "专项训练继承 targeted_practice_design@0.2.0；其他方法声明自己的设计逻辑，不硬套八步流程。",
+      "rationale": "通用方法要求可复用，具体认知结构不应被统一。",
+      "check": "形式有专业理由，不能靠机械线索绕过目标。",
+      "on_unknown_or_failure": "若目标与形式不对齐，换方法或修订场景。"
+    },
+    {
+      "rule_id": "P04-R3",
+      "when": "适用本判断面且使用资料、学习记录或派生建议时",
+      "decision": "选段解释、图表观察、专项训练等形式都需由学习目标支持；现成 Agent 或工具的存在不能反过来决定教学方法。",
+      "rationale": "使专业选择可执行、可解释、可复核，保持通用判断与场景细则分离。",
+      "check": "相应场景有具体证据、好坏例与缺项行为；运行条件可检查，专业语义仍需审定。",
+      "on_unknown_or_failure": "保留未知、缩小结论或转人工；不补造证据，不自动发布正式判断。",
+      "inspiration_refs": "I01 / I04"
+    }
+  ],
+  "examples": {
+    "good": "理解概念可用例子与反例；关系专项可配对；应用任务保留完整成果。",
+    "bad": "所有学科问题都转成五道选择题或修辞关系连线。"
+  },
+  "required_domain_inputs": [
+    "领域可用方法及限制",
+    "目标任务的关键认知或实践要求"
+  ],
+  "existing_basis": [
+    "现有模型建议与阅读草稿仅覆盖部分",
+    "专项训练母本 0.2.0 为候选设计"
+  ],
+  "implementation_status": "loaded_by_policy_runtime_0.3.0_with_explicit_checks",
+  "validation": {
+    "domain_review": "NOT_REVIEWED",
+    "user_trial": "NOT_TESTED"
+  },
+  "maintenance": "按反例、作品和使用证据提出修订，经负责人审阅后发布；不得由一次会话自动改正式规则。",
+  "previous_version": "0.2.0",
+  "design_change": "保留专业判断框架与原规则；新增证据及执行边界",
+  "runtime_decision_contract": {
+    "inputs": [
+      "任务目标与条件",
+      "最少相关证据引用",
+      "学科 / 场景细则",
+      "可用能力"
+    ],
+    "outputs": [
+      "选用规则与版本",
+      "专业决定及理由",
+      "所需材料 / 操作",
+      "需要的证据与检查",
+      "缺项 / 冲突处理"
+    ],
+    "actors": "领域人员提供专业内容；Agent / 代码 / 人工执行；正式判断遵守实际权限。"
+  },
+  "execution_boundary": "通用运行检查已接入；专业语义和真实效果仍待审阅，不将本文件存在当验证。"
+}

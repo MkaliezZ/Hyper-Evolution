@@ -1,0 +1,995 @@
+{
+  "version": "1.0.0",
+  "origin": "synthetic_design_review_inputs",
+  "cases": [
+    {
+      "case_id": "P01-positive",
+      "pack": "P01",
+      "kind": "positive",
+      "title": "数学：先解释概念边界",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "math_concept",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ]
+      },
+      "expected": {
+        "decisions.P01.status": "pass"
+      },
+      "scenario_boundary": "math_concept",
+      "professional_acceptance": "目标可观察且与概念理解一致，不要求无关的完整诊断。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P01-positive",
+        "title": "约分与适用条件",
+        "original_text": "当 x 不等于0时，x/x=1；在 x=0 处原式无定义。",
+        "learner_work": "学习者写：x/x 永远等于1。",
+        "candidate_response": "用 x=2 和 x=0 比较，解释为什么要写适用条件。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P01-counterexample",
+      "pack": "P01",
+      "kind": "counterexample",
+      "title": "缺失目标时不直接安排练习",
+      "context": {
+        "goal": "",
+        "method": "understand",
+        "scenario": "general",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ]
+      },
+      "expected": {
+        "status": "needs_input",
+        "decisions.P01.status": "needs_input"
+      },
+      "scenario_boundary": "general",
+      "professional_acceptance": "不把空目标补造成已确认需求。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P01-counterexample",
+        "title": "约分与适用条件",
+        "original_text": "当 x 不等于0时，x/x=1；在 x=0 处原式无定义。",
+        "learner_work": "学习者写：x/x 永远等于1。",
+        "candidate_response": "先完成全套能力诊断和50道计算题，再允许提问。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P02-positive",
+      "pack": "P02",
+      "kind": "positive",
+      "title": "用已有作品提出可修正假设",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "general",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ]
+      },
+      "expected": {
+        "decisions.P02.status": "pass"
+      },
+      "scenario_boundary": "general",
+      "professional_acceptance": "核对证据是否支持假设，不能只看是否有一条引用。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P02-positive",
+        "title": "从错答提出假设",
+        "original_text": "The cafe moved its closing time from six to eight so evening students can buy dinner.",
+        "learner_work": "学生把延长时间的目的答成 simply to change the timetable；词汇理解和目的判断过程均未追问。",
+        "candidate_response": "先问学生能否复述 so 后的信息，再比较内容复述与目的解释；保留两种错因假设。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P02-counterexample",
+      "pack": "P02",
+      "kind": "counterexample",
+      "title": "一次错误不能被当作稳定错因",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "general",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [],
+        "obstacle": "仅凭一次错误认定理解能力低"
+      },
+      "expected": {
+        "decisions.P02.status": "needs_review"
+      },
+      "scenario_boundary": "general",
+      "professional_acceptance": "自动只能识别缺作品依据；教师应拒绝稳定能力标签。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P02-counterexample",
+        "title": "从错答提出假设",
+        "original_text": "The cafe moved its closing time from six to eight so evening students can buy dinner.",
+        "learner_work": "学生把延长时间的目的答成 simply to change the timetable；词汇理解和目的判断过程均未追问。",
+        "candidate_response": "这一次答错证明学生推理能力差，以后全部练最简单题。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P03-positive",
+      "pack": "P03",
+      "kind": "positive",
+      "title": "编程：把未运行的推断留作待核验",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "debugging",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ]
+      },
+      "expected": {
+        "decisions.P03.status": "needs_review",
+        "professional_validation": "NOT_REVIEWED"
+      },
+      "scenario_boundary": "debugging",
+      "professional_acceptance": "说明代码和环境边界，不能因材料可读就宣称执行成功。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P03-positive",
+        "title": "核验前提与环境",
+        "original_text": "数学：f(x)=|x| 在0连续，但左右导数分别为-1和1。编程：对空列表取 values[0] 需要先处理空输入。",
+        "learner_work": "学习者问：连续是否一定可导？另有代码 values=[]; print(values[0])，尚未声明运行环境。",
+        "candidate_response": "数学用左右极限/导数解释反例；代码先说明观察与未执行状态，再建议用空输入测试。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P03-counterexample",
+      "pack": "P03",
+      "kind": "counterexample",
+      "title": "错误数学前提不能靠格式校验放行",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "math_concept",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ],
+        "question": "证明所有连续函数都处处可导"
+      },
+      "expected": {
+        "decisions.P03.status": "needs_review"
+      },
+      "scenario_boundary": "math_concept",
+      "professional_acceptance": "本前提错误；教师须指出反例。自动检查待审状态不等于自动识别数学错误。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P03-counterexample",
+        "title": "核验前提与环境",
+        "original_text": "数学：f(x)=|x| 在0连续，但左右导数分别为-1和1。编程：对空列表取 values[0] 需要先处理空输入。",
+        "learner_work": "学习者问：连续是否一定可导？另有代码 values=[]; print(values[0])，尚未声明运行环境。",
+        "candidate_response": "把“所有连续函数处处可导”当正确前提，或未运行就声称代码测试通过。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P04-positive",
+      "pack": "P04",
+      "kind": "positive",
+      "title": "修辞目的：用连线显化作用判断",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "targeted",
+        "scenario": "rhetorical_purpose",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ],
+        "obstacle": "区分内容复述与修辞作用",
+        "target_operation": "结合上下文判断信息的作用",
+        "question": "把信息与候选作用连线，并解释依据",
+        "criteria": [
+          "作用有上下文支持",
+          "回到段落验证"
+        ]
+      },
+      "expected": {
+        "decisions.P04.status": "pass",
+        "form": "matching"
+      },
+      "scenario_boundary": "rhetorical_purpose",
+      "professional_acceptance": "连线是否使作用判断可观察，并用完整段落检验；A-R-B 不跨场景强推。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P04-positive",
+        "title": "作用判断与真实写作操作",
+        "original_text": "The museum extended its weekend hours. For example, students can now visit after Saturday classes. 写作首稿：Online classes are always better because they are convenient.",
+        "learner_work": "修辞回答只复述“students visit on Saturday”。写作稿没有限定适用情境，也缺支持。",
+        "candidate_response": "修辞练习让“学生课后可参观”与“展示延时开放带来的便利”连线，再回段落解释；写作则保留首稿，补情境和支持并写修订理由。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P04-counterexample",
+      "pack": "P04",
+      "kind": "counterexample",
+      "title": "写作不能无理由替换成连线",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "apply",
+        "scenario": "writing",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ],
+        "form": "matching"
+      },
+      "expected": {
+        "decisions.P04.status": "needs_input",
+        "status": "needs_input"
+      },
+      "scenario_boundary": "writing",
+      "professional_acceptance": "应保留首稿、论证与修订操作；更换形式要说明怎样服务目标。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P04-counterexample",
+        "title": "作用判断与真实写作操作",
+        "original_text": "The museum extended its weekend hours. For example, students can now visit after Saturday classes. 写作首稿：Online classes are always better because they are convenient.",
+        "learner_work": "修辞回答只复述“students visit on Saturday”。写作稿没有限定适用情境，也缺支持。",
+        "candidate_response": "不解释目标操作，就把写作改成词语连线，做对连线便宣称会写论证。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P05-positive",
+      "pack": "P05",
+      "kind": "positive",
+      "title": "听力：连续声音作为目标证据",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "listening",
+        "material": {
+          "kind": "audio",
+          "verified": true,
+          "ref": {
+            "synthetic": "recording"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ]
+      },
+      "expected": {
+        "decisions.P05.status": "pass"
+      },
+      "scenario_boundary": "listening",
+      "professional_acceptance": "真人、题文答案配套及难度仍须试听核验；verified 仅表示运行来源条件。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P05-positive",
+        "title": "改口信息的听辨",
+        "original_text": "配套转写草案：Let us meet at four—sorry, a quarter past four, outside the library.",
+        "learner_work": "学习者记录4:00。仅凭该转写，不能证明其实际听到了连续声音或区分了改口。",
+        "candidate_response": "真实连续录音就绪且来源/配套已核对后，先听、记录最终时间，再回听改口位置。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        },
+        "missing_evidence": "案例包不含实际录音。音频存在的输入仅为工程模拟，不证明真人音源、听辨表现或发音质量。专业审阅必须补真实声音。"
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P05-counterexample",
+      "pack": "P05",
+      "kind": "counterexample",
+      "title": "只有转写不能当听辨训练",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "listening",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ]
+      },
+      "expected": {
+        "decisions.P05.status": "needs_input",
+        "status": "needs_input"
+      },
+      "scenario_boundary": "listening",
+      "professional_acceptance": "必须补实际声音，不能让文字阅读替代听觉表现。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P05-counterexample",
+        "title": "改口信息的听辨",
+        "original_text": "配套转写草案：Let us meet at four—sorry, a quarter past four, outside the library.",
+        "learner_work": "学习者记录4:00。仅凭该转写，不能证明其实际听到了连续声音或区分了改口。",
+        "candidate_response": "直接显示转写，让学习者读出4:15，便宣称听辨能力提高。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        },
+        "missing_evidence": "案例包不含实际录音。音频存在的输入仅为工程模拟，不证明真人音源、听辨表现或发音质量。专业审阅必须补真实声音。"
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P06-positive",
+      "pack": "P06",
+      "kind": "positive",
+      "title": "正常工具协作与本人责任分开",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "general",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ],
+        "normal_conditions": "可以查原文并请伙伴澄清",
+        "learner_responsibility": "本人比较证据并解释结论"
+      },
+      "expected": {
+        "decisions.P06.status": "pass"
+      },
+      "scenario_boundary": "general",
+      "professional_acceptance": "允许合理协作；不把独立等同于独处。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P06-positive",
+        "title": "合作、提示与代写",
+        "original_text": "任务要求学习者本人提出理由并用证据支持。正常条件允许查词与澄清题意。",
+        "learner_work": "作品：I support a quiet study room because group work can disturb readers. 外部帮助可能从查词到AI重写整段不等。",
+        "candidate_response": "记录帮助种类，保留本人理由和修改依据；正常协作不被简单排除。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P06-counterexample",
+      "pack": "P06",
+      "kind": "counterexample",
+      "title": "AI代写与独立声明冲突",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "writing",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ],
+        "independent_claim": true,
+        "additional_help": "AI代写主要段落"
+      },
+      "expected": {
+        "decisions.P06.status": "blocked",
+        "status": "blocked"
+      },
+      "scenario_boundary": "writing",
+      "professional_acceptance": "不能把代写后的作品当本人独立表达证据。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P06-counterexample",
+        "title": "合作、提示与代写",
+        "original_text": "任务要求学习者本人提出理由并用证据支持。正常条件允许查词与澄清题意。",
+        "learner_work": "作品：I support a quiet study room because group work can disturb readers. 外部帮助可能从查词到AI重写整段不等。",
+        "candidate_response": "AI重写主要论证后仍标记“无帮助、独立完成”。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P07-positive",
+      "pack": "P07",
+      "kind": "positive",
+      "title": "反馈集中于一个可执行修改",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "reflect",
+        "scenario": "general",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ]
+      },
+      "expected": {
+        "decisions.P07.status": "pass"
+      },
+      "scenario_boundary": "general",
+      "professional_acceptance": "指出具体原答、一个关键差距和可执行修改，不泛夸也不倾倒所有错误。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P07-positive",
+        "title": "让反馈能指导修改",
+        "original_text": "任务：为延长图书馆开放时间提出一个理由与支持。",
+        "learner_work": "学生稿：The library should stay open late because it is good.",
+        "candidate_response": "你提出了清楚的主张。现在补一个晚间学习的具体情境，说明它怎样支持延长开放时间。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P07-counterexample",
+      "pack": "P07",
+      "kind": "counterexample",
+      "title": "泛夸与辱责不能代替反馈",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "general",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ],
+        "question": "答错就训斥，答对只说你真聪明"
+      },
+      "expected": {
+        "decisions.P07.status": "pass"
+      },
+      "scenario_boundary": "general",
+      "professional_acceptance": "人工应拒绝此反馈设计；当前自动规则只提供指导，不自动判别任意文本的语用质量。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P07-counterexample",
+        "title": "让反馈能指导修改",
+        "original_text": "任务：为延长图书馆开放时间提出一个理由与支持。",
+        "learner_work": "学生稿：The library should stay open late because it is good.",
+        "candidate_response": "答错时说“你怎么这么笨”，答对只说“你真是天才”，不指向原答或下一步。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P08-positive",
+      "pack": "P08",
+      "kind": "positive",
+      "title": "口语的内容与声音维度分开",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "speaking",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ]
+      },
+      "expected": {
+        "decisions.P08.status": "pass",
+        "professional_validation": "NOT_REVIEWED"
+      },
+      "scenario_boundary": "speaking",
+      "professional_acceptance": "文字可观察内容；声音维度须真实声音，不从转写判发音。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P08-positive",
+        "title": "口语证据与结论范围",
+        "original_text": "口语任务：向同伴说明更喜欢安静自习还是小组讨论，并给出理由。",
+        "learner_work": "转写：I prefer quiet study because I can focus on a difficult chapter. 真实录音缺失，帮助条件未核实。",
+        "candidate_response": "可以观察主张和理由是否关联；声音维度保留未知，补真实声音后再评阅本次表现。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        },
+        "missing_evidence": "案例包不含实际录音。音频存在的输入仅为工程模拟，不证明真人音源、听辨表现或发音质量。专业审阅必须补真实声音。"
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P08-counterexample",
+      "pack": "P08",
+      "kind": "counterexample",
+      "title": "一次任务不能证明长期掌握",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "general",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ],
+        "proposed_conclusion": "long_term_mastery"
+      },
+      "expected": {
+        "decisions.P08.status": "blocked",
+        "status": "blocked"
+      },
+      "scenario_boundary": "general",
+      "professional_acceptance": "只记录本次作品证据；不由分数、完成或模型自信升级掌握。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P08-counterexample",
+        "title": "口语证据与结论范围",
+        "original_text": "口语任务：向同伴说明更喜欢安静自习还是小组讨论，并给出理由。",
+        "learner_work": "转写：I prefer quiet study because I can focus on a difficult chapter. 真实录音缺失，帮助条件未核实。",
+        "candidate_response": "只看转写就判发音和流利度高分，或从一次回答推断长期掌握。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        },
+        "missing_evidence": "案例包不含实际录音。音频存在的输入仅为工程模拟，不证明真人音源、听辨表现或发音质量。专业审阅必须补真实声音。"
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P09-positive",
+      "pack": "P09",
+      "kind": "positive",
+      "title": "安排可由学习者调整",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "review",
+        "scenario": "general",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ],
+        "minutes": 8
+      },
+      "expected": {
+        "decisions.P09.status": "pass"
+      },
+      "scenario_boundary": "general",
+      "professional_acceptance": "结合负担和条件判断参数，说明它是可调起点。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P09-positive",
+        "title": "短时目标与负担",
+        "original_text": "学习者今天可用约10分钟，目标是重新解释一个概念边界；疲劳与额外负担尚未测量。",
+        "learner_work": "学习者上次能复述定义，但例子与反例容易混淆。",
+        "candidate_response": "建议8分钟：先回忆，再比较一对例子/反例；允许缩短、停止或改期。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P09-counterexample",
+      "pack": "P09",
+      "kind": "counterexample",
+      "title": "长时任务不等于更有效",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "general",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ],
+        "minutes": 120
+      },
+      "expected": {
+        "decisions.P09.status": "pass"
+      },
+      "scenario_boundary": "general",
+      "professional_acceptance": "自动只检查参数边界；教师需审阅真实负担，不能把120分钟视为已适配。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P09-counterexample",
+        "title": "短时目标与负担",
+        "original_text": "学习者今天可用约10分钟，目标是重新解释一个概念边界；疲劳与额外负担尚未测量。",
+        "learner_work": "学习者上次能复述定义，但例子与反例容易混淆。",
+        "candidate_response": "因为用户想进步，直接安排120分钟连续练习，并把它称为精确个人遗忘曲线。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P10-positive",
+      "pack": "P10",
+      "kind": "positive",
+      "title": "把方法变更保留为候选",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "reflect",
+        "scenario": "general",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ]
+      },
+      "expected": {
+        "decisions.P10.status": "pass"
+      },
+      "scenario_boundary": "general",
+      "professional_acceptance": "个人回流与共享方法发布分开，保留反例和替代解释。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P10-positive",
+        "title": "个人经验与共享方法",
+        "original_text": "个人记录：一次使用连线后，学习者表示“更有趣”，但尚未用新段落或其他学科检验。",
+        "learner_work": "只有一次好评，无独立新任务、不同水平样本或负担比较。",
+        "candidate_response": "记录为当前场景的候选经验，安排新材料观察，并保留不适用场景与替代解释。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    },
+    {
+      "case_id": "P10-counterexample",
+      "pack": "P10",
+      "kind": "counterexample",
+      "title": "一次好评不能自动发布通用规则",
+      "context": {
+        "goal": "解释一项观察及其适用条件",
+        "method": "understand",
+        "scenario": "general",
+        "material": {
+          "kind": "text",
+          "verified": true,
+          "ref": {
+            "synthetic": "original"
+          }
+        },
+        "evidence": [
+          {
+            "synthetic": "work-1"
+          }
+        ],
+        "question": "学生一次说喜欢，就发布为全学科通用方法"
+      },
+      "expected": {
+        "decisions.P10.status": "pass",
+        "professional_validation": "NOT_REVIEWED"
+      },
+      "scenario_boundary": "general",
+      "professional_acceptance": "人工应拒绝自动推广；自动规则仅返回候选指导，没有公共发布权限。",
+      "provenance": "team_authored_synthetic_not_real_learner",
+      "domain_review": "NOT_REVIEWED",
+      "evidence_bundle": {
+        "id": "synthetic-P10-counterexample",
+        "title": "个人经验与共享方法",
+        "original_text": "个人记录：一次使用连线后，学习者表示“更有趣”，但尚未用新段落或其他学科检验。",
+        "learner_work": "只有一次好评，无独立新任务、不同水平样本或负担比较。",
+        "candidate_response": "立即把连线公布为所有英语、数学和编程任务的最佳方法。",
+        "source": "团队原创合成示例，非真题或真实学生记录",
+        "quality": {
+          "domain_review": "NOT_REVIEWED",
+          "learner_effect": "NOT_TESTED"
+        }
+      },
+      "review_questions": [
+        "候选做法是否服务本例目标操作，而不是只换外观？",
+        "现有材料和作品究竟支持什么，哪些仍需补证据？",
+        "在什么条件下应该拒绝、调整或转人工？"
+      ],
+      "transfer_boundary": "本例的认知操作和练习形式限于所述情境；可复用的是依据目标、证据和条件选择并验证的方法。"
+    }
+  ],
+  "boundary": "Engineering assertions check runtime conditions only; professional judgments and learner effects remain unverified."
+}

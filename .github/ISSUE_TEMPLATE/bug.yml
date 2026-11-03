@@ -1,0 +1,22 @@
+name: 使用问题 / Bug report
+description: 告诉我们在哪一步遇到了问题
+body:
+  - type: input
+    id: version
+    attributes:
+      label: 版本和电脑环境
+      placeholder: v0.6.0-rc.1 / Enlighter / Windows 11 x64
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 操作步骤和实际结果
+      description: 请按顺序描述点了什么、希望发生什么、实际发生了什么。
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 补充截图或日志
+      description: 提交前隐去 API Key、口令、配对信息和学习者个人资料。

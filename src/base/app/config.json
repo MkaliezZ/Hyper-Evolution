@@ -1,0 +1,14 @@
+{
+  "name": "超维成长（BASE兼容活动）",
+  "activity_title": "读一段资料，提出一个留学学习行动",
+  "goal": "能用自己的话解释资料中的一个要点，并将其转化为可观察的小行动。",
+  "deliverable": "提交一个要点、一个具体行动；获得反馈后补充一次执行观察。",
+  "instructions": "读完资料，用自己的话说明一个要点，再写一个今天能完成的行动。",
+  "criteria": "要点与资料相关，行动具体且可执行。",
+  "next_step": "按反馈修改行动，执行后再提交一次观察记录。",
+  "mode": "text",
+  "assessment_version": "1",
+  "sources": [
+    {"title": "开发包自编示例资料", "file": "knowledge/material.txt", "locator": "全文", "version": "1", "extraction_status": "readable", "verification_status": "unverified", "note": "示例可读取；实际用于教学前由开发者核验并更新来源信息。"}
+  ]
+}

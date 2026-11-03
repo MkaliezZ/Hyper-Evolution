@@ -1,0 +1,224 @@
+{
+  "as_of": "2026-10-29",
+  "basis": "v0.2 plan compared with local source; engineering status is separate from domain review and learning effects",
+  "items": [
+    {
+      "id": "K01",
+      "layer": "功能层",
+      "title": "本地网页与 MCP 双入口",
+      "status": "available",
+      "route": "connections",
+      "detail": "同一本机身份、数据和 Runtime；网页助手与外部 Agent 各用自己的模型配置。"
+    },
+    {
+      "id": "K02",
+      "layer": "功能层",
+      "title": "任务、作品提交、历史修订与反馈",
+      "status": "available",
+      "route": "home",
+      "detail": "保留 BASE 任务快照、历次作品和教师反馈；完成任务不自动代表掌握。",
+      "teacher_route": "review",
+      "student_route": "tasks"
+    },
+    {
+      "id": "K03",
+      "layer": "功能层",
+      "title": "师生配对与签名交换",
+      "status": "available",
+      "route": "connections",
+      "detail": "配对码、当前角色授权、签名任务与作品交换；本次预览使用本机双实例消息交换，未重新验证公网。"
+    },
+    {
+      "id": "K04",
+      "layer": "资产层",
+      "title": "本机记录、自有 API 和加密备份",
+      "status": "available",
+      "route": "settings",
+      "detail": "记录在本机，密钥在系统密钥库；必要上下文发送给用户选择的模型服务商。"
+    },
+    {
+      "id": "K05",
+      "layer": "资产层",
+      "title": "题包审校与听力材料核对",
+      "status": "partial",
+      "route": "practice",
+      "detail": "保留音频 ZIP、原文、答案、哈希与教师试听放行。需要用户实际导入和审校；不自带完整免费真题库，也不能证明每段音源均为真人。",
+      "teacher_route": "resources"
+    },
+    {
+      "id": "K06",
+      "layer": "审美层",
+      "title": "P01—P10 专业判断与六类方法",
+      "status": "partial",
+      "route": "policy",
+      "detail": "十包已加载，六类方法及条件检查已接入；新增20个带原文、作品和候选做法的正反例，以及工程检查和本机教师限定审阅流程。专业语义、难度与真实学习效果仍未审定。"
+    },
+    {
+      "id": "K07",
+      "layer": "三层边界",
+      "title": "六对象与三层依赖约定",
+      "status": "available",
+      "route": null,
+      "detail": "规则、执行和资产职责固定并有架构检查；不要求每项能力都用一个 Agent，也不强制所有学科使用同一题型。"
+    },
+    {
+      "id": "R01",
+      "layer": "功能层",
+      "title": "统一授权学习证据视图",
+      "status": "available",
+      "route": "agent",
+      "detail": "自主与当前授权教师任务共用投影，排除密钥、教师私注、草稿和题目答案。旧记录缺项保留未知。"
+    },
+    {
+      "id": "R02",
+      "layer": "功能层",
+      "title": "通用能力契约与活动快照",
+      "status": "partial",
+      "route": "materials",
+      "detail": "保留 v1 / v2，新建 v3 类型契约与冻结活动快照；当前覆盖文字和单页原图，不代表全学科多模态已经完整支持。"
+    },
+    {
+      "id": "R03",
+      "layer": "审美层 / 功能层",
+      "title": "规则选择与 Harness 装配",
+      "status": "partial",
+      "route": "policy",
+      "detail": "六类方法按情境装配，缺必要材料或专项条件会阻止发布，独立性冲突和过度结论会被拦截；冻结规则版本、理由与验收结果。专业判断仍需审阅。"
+    },
+    {
+      "id": "R04",
+      "layer": "资产层",
+      "title": "稳定来源引用与版本定位",
+      "status": "partial",
+      "route": "materials",
+      "detail": "文字和单页 PNG/JPEG 绑定版本、哈希及区域引用，签名任务内保留选定原图；PDF页码、音频时间定位尚未完整接入。"
+    },
+    {
+      "id": "R05",
+      "layer": "审美层 / 功能层",
+      "title": "观察、评价、正式判断与建议分离",
+      "status": "partial",
+      "route": "home",
+      "detail": "本人反思、模型建议、教师确认已区分，旧反馈可追溯；跨学科专业量规和有效性仍需审阅。",
+      "teacher_route": "review",
+      "student_route": "feedback"
+    },
+    {
+      "id": "R06",
+      "layer": "三层回流",
+      "title": "个人回流与共享方法回流",
+      "status": "partial",
+      "route": "memory",
+      "detail": "个人札记与方法库分开。方法候选经用途、脱敏、案例和范围声明审阅，再由负责人本机发布与显式导出；不自动复制个人作品，不认证专业资质，不自动修改运行规则。跨组织公共分发尚未建设。",
+      "teacher_route": "methods"
+    },
+    {
+      "id": "N01",
+      "layer": "功能层 / 资产层",
+      "title": "资料阅读、选段问答与来源引用",
+      "status": "partial",
+      "route": "materials",
+      "detail": "文字选段提问须匹配原文引用；单页原图有独立像素读取通道。PDF / OCR 未接入，不把转写当原图。"
+    },
+    {
+      "id": "N02",
+      "layer": "功能层 / 资产层",
+      "title": "尝试、评价与证据记录",
+      "status": "available",
+      "route": "home",
+      "detail": "作品、帮助自述、追加评价、原答哈希及教师签名更新已接入；不是自动能力认证。",
+      "teacher_route": "review",
+      "student_route": "tasks"
+    },
+    {
+      "id": "N03",
+      "layer": "功能层 / 资产层",
+      "title": "表格题库预览导入",
+      "status": "partial",
+      "route": "resources",
+      "detail": "CSV / JSON 可预览错误、识别重复、确认保存待审题包；XLSX、任意版式题册及自动专业审校未实现。"
+    },
+    {
+      "id": "N04",
+      "layer": "功能层 / 资产层",
+      "title": "原图、原表与原始页面练习",
+      "status": "partial",
+      "route": "materials",
+      "detail": "PNG/JPEG 原图保存、浏览器显示、签名布置、视觉模型与 MCP 图片内容已接入；带哈希、版本和图区。暂不支持多页PDF、OCR或任意表格解析。"
+    },
+    {
+      "id": "N05",
+      "layer": "功能层 / 资产层",
+      "title": "学习日志与有界教学记忆",
+      "status": "partial",
+      "route": "memory",
+      "detail": "作品、可见反馈和帮助条件形成有界摘录；可修订、隐藏、追溯，进入模型前重查来源授权。不做全历史向量检索，也不自动发布公共经验。"
+    },
+    {
+      "id": "N06",
+      "layer": "功能层",
+      "title": "错题复习与可调调度",
+      "status": "available",
+      "route": "reviews",
+      "detail": "学生可选间隔、先回忆再核对、声明帮助、记录事件、改期或暂停。只调个人安排，不改教师评价；未验证最优间隔，不含系统后台通知。",
+      "teacher_route": "policy",
+      "student_route": "reviews"
+    },
+    {
+      "id": "N07",
+      "layer": "资产层",
+      "title": "索引版本与检索效果对照",
+      "status": "available",
+      "route": "retrieval",
+      "detail": "本机不可变索引版本、来源状态、字面/BM25实际检索、固定题集版本及逐题对照已接入；报告保留命中、误检、未命中和失效。图像仅索引标题/附注，Embedding/PDF/OCR尚未接入。"
+    },
+    {
+      "id": "N08",
+      "layer": "功能层",
+      "title": "可审阅的学习路径变更",
+      "status": "available",
+      "route": "paths",
+      "detail": "可选安排的目标、负担、步骤、依据和差异逐版保留；预览后确认。教师明确发布精确版本，学生只读或另建自己的安排，不重写原任务标准。"
+    },
+    {
+      "id": "N09",
+      "layer": "功能层 / 资产层",
+      "title": "写作共创与可辨改动历史",
+      "status": "available",
+      "route": "writing",
+      "detail": "首稿保留，自己的修订、外部与教师建议分开；用自有模型准备局部候选，预览确认后保存。学生另行提交当前稿及历史；贡献声明不证明独立完成或能力增长。"
+    },
+    {
+      "id": "N10",
+      "layer": "功能层",
+      "title": "语音适配与隔离执行",
+      "status": "planned",
+      "route": null,
+      "detail": "可选适配已分别评估：自动STT/TTS未做真实语音与设备兼容验收，隔离执行无已验证后端，因此不开放。录音上传和教师评阅保留；不以合成音频替代真人听力。"
+    },
+    {
+      "id": "K12-01",
+      "layer": "功能层 / 审美层 / 资产层",
+      "title": "学科与K12教学链",
+      "status": "available",
+      "route": "k12",
+      "detail": "独立路线与版本范围，原创草稿和逐选项审校，未见题库存、证据分开的错因记录、双版讲解、主观评分与独立目标测验。原答不改，教师经营独立后接。"
+    },
+    {
+      "id": "K12-02",
+      "layer": "功能层",
+      "title": "K12班级与提交通知",
+      "status": "available",
+      "teacher_route": "k12",
+      "detail": "冻结名单逐人布置，失败重试，独立已读、班级任务报告；跨学生教材范围需各自映射，不把同年级等同测量可比。"
+    },
+    {
+      "id": "K12-03",
+      "layer": "资产层 / 审美层",
+      "title": "完整课标、版本教材与专业校准",
+      "status": "planned",
+      "route": null,
+      "detail": "当前只使用用户实际提供的有权素材与范围；未分发完整官方词表、各版本教材或真人听力，领域内容与量规仍待教师审定。"
+    }
+  ]
+}

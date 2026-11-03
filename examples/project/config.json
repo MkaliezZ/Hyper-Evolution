@@ -1,0 +1,47 @@
+{
+  "name": "成人项目伴学",
+  "activity_title": "改进一次工作交接",
+  "instructions": "写一份小型交接说明，包含现状、待办和验收方法。",
+  "criteria": "接手者能明确下一步行动，并知道如何检查完成。",
+  "next_step": "请同伴试用说明，根据反馈修订。",
+  "mode": "text",
+  "rubric": [
+    {
+      "label": "现状清楚",
+      "max_score": 5
+    },
+    {
+      "label": "待办可执行",
+      "max_score": 5
+    },
+    {
+      "label": "验收可检查",
+      "max_score": 5
+    }
+  ],
+  "structure": {
+    "sections": [
+      "现状",
+      "待办",
+      "验收"
+    ],
+    "min_chars": 10,
+    "max_chars": 500,
+    "vague_phrases": [
+      "差不多"
+    ]
+  },
+  "goal": "能写出使接手者可行动、可验收的交接说明。",
+  "deliverable": "提交现状、待办、验收三部分说明；按反馈修订。",
+  "assessment_version": "1",
+  "sources": [
+    {
+      "title": "开发包自编示例（使用前核验）",
+      "file": "knowledge/material.txt",
+      "locator": "全文",
+      "version": "1",
+      "extraction_status": "readable",
+      "verification_status": "unverified"
+    }
+  ]
+}

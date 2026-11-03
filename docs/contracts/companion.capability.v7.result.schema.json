@@ -1,0 +1,63 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "companion.capability.v7",
+      "default": "companion.capability.v7",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "request_id": {
+      "title": "Request Id",
+      "type": "string"
+    },
+    "operation": {
+      "title": "Operation",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "completed",
+        "partial",
+        "needs_input",
+        "needs_review",
+        "unavailable",
+        "failed"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "data": {
+      "additionalProperties": true,
+      "title": "Data",
+      "type": "object"
+    },
+    "decision_trace": {
+      "additionalProperties": true,
+      "title": "Decision Trace",
+      "type": "object"
+    },
+    "commit_receipt": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Commit Receipt"
+    }
+  },
+  "required": [
+    "request_id",
+    "operation",
+    "status",
+    "data",
+    "decision_trace"
+  ],
+  "title": "AcademicResult",
+  "type": "object"
+}

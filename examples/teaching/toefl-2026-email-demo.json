@@ -1,0 +1,26 @@
+{
+  "id": "toefl-email-local-demo-v1",
+  "synthetic_only": true,
+  "exam": "TOEFL iBT 2026",
+  "task_type": "Write an Email",
+  "official_task_reference": "https://www.ets.org/toefl/test-takers/ibt/about/content/writing/.html",
+  "source": "团队原创合成工程示例，参照ETS Write an Email的学术/社交沟通构念；非官方真题、非模考评分。",
+  "title": "【演示】托福2026邮件写作 · 补上项目会议",
+  "material": "ORIGINAL PRACTICE TASK — NOT AN OFFICIAL TOEFL QUESTION\n\nYou are working on a campus research project. You missed yesterday's team meeting because a required laboratory session was moved to the same time. You need to catch up before the next project deadline.\n\nWrite an email to Alex, the student project coordinator. In your email:\n• Explain why you missed the meeting.\n• Ask for the meeting notes and clarify which tasks you should complete.\n• Suggest a specific time for a short follow-up conversation.\n\nWrite clearly and use an appropriate, polite tone. The receiver should know what information you need and how to respond.\n\n教学演示说明：约10分钟为本次学习安排，不是官方计时。作答与反馈均由Agent代演，保留首稿和修订，不记录正式分数或真人审阅声明。",
+  "goal": "写清缺席原因、资料与任务请求，以及具体跟进时间，让协调人能够直接回应。",
+  "criteria": [
+    "交代会议缺席的具体原因，并覆盖三个沟通要求。",
+    "资料和任务请求足够具体，给出可回应的跟进时间。",
+    "语气礼貌、结构清楚，语言基本准确，不影响读者理解。"
+  ],
+  "first_draft": "Hi Alex,\n\nI missed the project meeting yesterday because I had another appointment. I want to catch up. Please send me everything about the project. I also don't know what I need to do next. We should meet sometime this week. Tell me what works.\n\nThanks,\nSam",
+  "feedback": "【合成工程演示｜外部Agent代演反馈，非真人审阅或正式评分】你已经说明想补上会议内容，但收件人还不清楚你具体需要什么。把“Please send me everything about the project.”改成对会议记录、自己分工和截止时间的明确请求；把“We should meet sometime this week.”改成两个可选时段；按题目补上必修实验课临时调课的原因。最后用更礼貌的请求语气。",
+  "next_step": "保留首稿，补齐实验课调课原因、会议记录/个人分工/截止时间请求，以及两个具体可选时段，再提交修订稿。",
+  "revision": "Subject: Catching Up on Yesterday's Project Meeting\n\nHi Alex,\n\nI'm sorry I missed yesterday's project meeting. My required laboratory session was moved to the same time at short notice, so I was unable to attend. I would like to catch up before our next deadline.\n\nCould you please share the meeting notes and let me know which tasks I should complete and when they are due? That would help me plan my contribution.\n\nWould you be available for a ten-minute conversation on Tuesday at 3 p.m. or Wednesday at 11 a.m.? If neither time works, please suggest another.\n\nThank you for your help.\n\nBest,\nSam",
+  "help_declaration": "合成工程演示，由Agent代填，包含示例反馈帮助；不代表真实学生独立完成。",
+  "retest": {
+    "title": "【演示复测】托福邮件写作 · 调整图书馆工作坊",
+    "material": "ORIGINAL TRANSFER PRACTICE — NOT AN OFFICIAL TOEFL QUESTION\n\nYou registered for a library workshop about finding academic sources. A required seminar has now been scheduled at the same time. Write an email to Ms. Rivera, the workshop organizer.\n\n• Explain the scheduling conflict.\n• Ask whether you can attend a different session and explain your availability.\n• Ask what materials or preparation you should bring to the alternative session.\n\nUse a polite tone and give enough detail for the organizer to respond. This is a new situation for checking transfer after feedback. No official score will be produced.",
+    "response": "Subject: Request to Attend a Different Library Workshop Session\n\nDear Ms. Rivera,\n\nI registered for Friday's workshop on finding academic sources. Unfortunately, a required seminar has just been scheduled for the same time, so I will not be able to attend that session.\n\nWould it be possible to join an alternative session? I am available on Monday after 2 p.m. or Tuesday between 10 a.m. and noon. Please let me know whether either option is possible.\n\nCould you also tell me what materials I should bring or what I should prepare before the workshop? I would like to arrive ready to participate.\n\nThank you for your time and help.\n\nBest regards,\nSam"
+  }
+}

@@ -1,0 +1,1365 @@
+{
+  "workflow.catalog": {
+    "additionalProperties": false,
+    "properties": {},
+    "title": "Empty",
+    "type": "object"
+  },
+  "roster.list": {
+    "additionalProperties": false,
+    "properties": {},
+    "title": "Empty",
+    "type": "object"
+  },
+  "roster.save": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "anyOf": [
+          {
+            "maxLength": 100,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Id"
+      },
+      "expected_revision": {
+        "default": 0,
+        "minimum": 0,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "name": {
+        "maxLength": 80,
+        "minLength": 1,
+        "title": "Name",
+        "type": "string"
+      },
+      "aliases": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 10,
+        "title": "Aliases",
+        "type": "array"
+      },
+      "note": {
+        "default": "",
+        "maxLength": 1000,
+        "title": "Note",
+        "type": "string"
+      },
+      "peer_id": {
+        "anyOf": [
+          {
+            "maxLength": 128,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Peer Id"
+      }
+    },
+    "required": [
+      "name"
+    ],
+    "title": "RosterSave",
+    "type": "object"
+  },
+  "roster.resolve": {
+    "additionalProperties": false,
+    "properties": {
+      "query": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Query",
+        "type": "string"
+      }
+    },
+    "required": [
+      "query"
+    ],
+    "title": "RosterResolve",
+    "type": "object"
+  },
+  "curriculum.preview": {
+    "$defs": {
+      "Unit": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "maxLength": 160,
+            "minLength": 1,
+            "title": "Unit",
+            "type": "string"
+          },
+          "order": {
+            "maximum": 1000,
+            "minimum": 1,
+            "title": "Order",
+            "type": "integer"
+          },
+          "words": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 3000,
+            "title": "Words",
+            "type": "array"
+          },
+          "phrases": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 200,
+            "title": "Phrases",
+            "type": "array"
+          },
+          "grammar": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 200,
+            "title": "Grammar",
+            "type": "array"
+          },
+          "complete": {
+            "default": false,
+            "title": "Complete",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "unit",
+          "order"
+        ],
+        "title": "Unit",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "title": {
+        "maxLength": 160,
+        "minLength": 1,
+        "title": "Title",
+        "type": "string"
+      },
+      "source": {
+        "maxLength": 1000,
+        "minLength": 3,
+        "title": "Source",
+        "type": "string"
+      },
+      "units": {
+        "items": {
+          "$ref": "#/$defs/Unit"
+        },
+        "maxItems": 200,
+        "minItems": 1,
+        "title": "Units",
+        "type": "array"
+      }
+    },
+    "required": [
+      "title",
+      "source",
+      "units"
+    ],
+    "title": "CatalogPreview",
+    "type": "object"
+  },
+  "curriculum.extract": {
+    "additionalProperties": false,
+    "properties": {
+      "title": {
+        "maxLength": 160,
+        "minLength": 1,
+        "title": "Title",
+        "type": "string"
+      },
+      "source": {
+        "maxLength": 1000,
+        "minLength": 3,
+        "title": "Source",
+        "type": "string"
+      },
+      "text": {
+        "maxLength": 50000,
+        "minLength": 1,
+        "title": "Text",
+        "type": "string"
+      }
+    },
+    "required": [
+      "title",
+      "source",
+      "text"
+    ],
+    "title": "CatalogExtract",
+    "type": "object"
+  },
+  "curriculum.commit": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "expected_revision": {
+        "minimum": 1,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "content_hash": {
+        "pattern": "^[0-9a-f]{64}$",
+        "title": "Content Hash",
+        "type": "string"
+      },
+      "human_review_confirmed": {
+        "const": true,
+        "title": "Human Review Confirmed",
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "id",
+      "expected_revision",
+      "content_hash",
+      "human_review_confirmed"
+    ],
+    "title": "CatalogCommit",
+    "type": "object"
+  },
+  "curriculum.list": {
+    "additionalProperties": false,
+    "properties": {},
+    "title": "Empty",
+    "type": "object"
+  },
+  "curriculum.apply": {
+    "additionalProperties": false,
+    "properties": {
+      "route_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Route Id",
+        "type": "string"
+      },
+      "catalog_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Catalog Id",
+        "type": "string"
+      },
+      "catalog_revision": {
+        "minimum": 1,
+        "title": "Catalog Revision",
+        "type": "integer"
+      },
+      "unit_orders": {
+        "items": {
+          "type": "integer"
+        },
+        "maxItems": 200,
+        "minItems": 1,
+        "title": "Unit Orders",
+        "type": "array"
+      }
+    },
+    "required": [
+      "route_id",
+      "catalog_id",
+      "catalog_revision",
+      "unit_orders"
+    ],
+    "title": "CatalogApply",
+    "type": "object"
+  },
+  "lexical.check": {
+    "additionalProperties": false,
+    "properties": {
+      "route_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Route Id",
+        "type": "string"
+      },
+      "scope_ids": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 50,
+        "minItems": 1,
+        "title": "Scope Ids",
+        "type": "array"
+      },
+      "text": {
+        "maxLength": 30000,
+        "minLength": 1,
+        "title": "Text",
+        "type": "string"
+      },
+      "exemptions": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 200,
+        "title": "Exemptions",
+        "type": "array"
+      },
+      "proper_names": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 200,
+        "title": "Proper Names",
+        "type": "array"
+      }
+    },
+    "required": [
+      "route_id",
+      "scope_ids",
+      "text"
+    ],
+    "title": "Lexical",
+    "type": "object"
+  },
+  "blueprint.save": {
+    "$defs": {
+      "Section": {
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "maxLength": 160,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "types": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 13,
+            "minItems": 1,
+            "title": "Types",
+            "type": "array"
+          },
+          "question_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 80,
+            "minItems": 1,
+            "title": "Question Ids",
+            "type": "array"
+          },
+          "count": {
+            "maximum": 80,
+            "minimum": 1,
+            "title": "Count",
+            "type": "integer"
+          },
+          "points": {
+            "exclusiveMinimum": 0,
+            "maximum": 8000,
+            "title": "Points",
+            "type": "number"
+          },
+          "minutes": {
+            "maximum": 240,
+            "minimum": 1,
+            "title": "Minutes",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "title",
+          "types",
+          "question_ids",
+          "count",
+          "points",
+          "minutes"
+        ],
+        "title": "Section",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "expected_revision": {
+        "minimum": 1,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "template": {
+        "default": "k12-custom",
+        "enum": [
+          "k12-custom",
+          "toefl-2026",
+          "ielts-academic-computer"
+        ],
+        "title": "Template",
+        "type": "string"
+      },
+      "sections": {
+        "items": {
+          "$ref": "#/$defs/Section"
+        },
+        "maxItems": 20,
+        "minItems": 1,
+        "title": "Sections",
+        "type": "array"
+      }
+    },
+    "required": [
+      "id",
+      "expected_revision",
+      "sections"
+    ],
+    "title": "Blueprint",
+    "type": "object"
+  },
+  "blueprint.read": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "title": "Identity",
+    "type": "object"
+  },
+  "workflow.prepare": {
+    "additionalProperties": false,
+    "properties": {
+      "route_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Route Id",
+        "type": "string"
+      },
+      "focus": {
+        "maxLength": 120,
+        "minLength": 1,
+        "title": "Focus",
+        "type": "string"
+      },
+      "count": {
+        "default": 5,
+        "maximum": 80,
+        "minimum": 1,
+        "title": "Count",
+        "type": "integer"
+      },
+      "scope_ids": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 50,
+        "title": "Scope Ids",
+        "type": "array"
+      },
+      "use_fallback": {
+        "default": true,
+        "title": "Use Fallback",
+        "type": "boolean"
+      },
+      "exclude_draft_id": {
+        "anyOf": [
+          {
+            "maxLength": 100,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Exclude Draft Id"
+      }
+    },
+    "required": [
+      "route_id",
+      "focus"
+    ],
+    "title": "Prepare",
+    "type": "object"
+  },
+  "workflow.resume": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "title": "Identity",
+    "type": "object"
+  },
+  "workflow.merge": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "expected_revision": {
+        "minimum": 1,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "source_draft_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Source Draft Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "expected_revision",
+      "source_draft_id"
+    ],
+    "title": "Merge",
+    "type": "object"
+  },
+  "draft.patch": {
+    "$defs": {
+      "Question": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 40,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "grammar_mcq",
+              "cloze",
+              "reading_mcq",
+              "listening",
+              "reading_match",
+              "reading_response",
+              "writing",
+              "writing_task",
+              "true_false",
+              "dialogue",
+              "unscramble",
+              "seven_choose",
+              "grammar_fill"
+            ],
+            "title": "Type",
+            "type": "string"
+          },
+          "skill": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Skill",
+            "type": "string"
+          },
+          "material": {
+            "default": "",
+            "maxLength": 12000,
+            "title": "Material",
+            "type": "string"
+          },
+          "prompt": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Prompt",
+            "type": "string"
+          },
+          "options": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 6,
+            "title": "Options",
+            "type": "array"
+          },
+          "key": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Key",
+            "type": "array"
+          },
+          "evidence": {
+            "default": "",
+            "maxLength": 2000,
+            "title": "Evidence",
+            "type": "string"
+          },
+          "explanation": {
+            "default": "",
+            "maxLength": 2000,
+            "title": "Explanation",
+            "type": "string"
+          },
+          "traps": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Traps",
+            "type": "object"
+          },
+          "points": {
+            "default": 1,
+            "exclusiveMinimum": 0,
+            "maximum": 100,
+            "title": "Points",
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "skill",
+          "prompt"
+        ],
+        "title": "Question",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "expected_revision": {
+        "minimum": 1,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "questions": {
+        "items": {
+          "$ref": "#/$defs/Question"
+        },
+        "maxItems": 80,
+        "minItems": 1,
+        "title": "Questions",
+        "type": "array"
+      }
+    },
+    "required": [
+      "id",
+      "expected_revision",
+      "questions"
+    ],
+    "title": "Patch",
+    "type": "object"
+  },
+  "draft.review_items": {
+    "$defs": {
+      "ChoiceReview": {
+        "additionalProperties": false,
+        "properties": {
+          "option": {
+            "maxLength": 1,
+            "minLength": 1,
+            "title": "Option",
+            "type": "string"
+          },
+          "defensible": {
+            "title": "Defensible",
+            "type": "boolean"
+          },
+          "reasoning": {
+            "maxLength": 2000,
+            "minLength": 4,
+            "title": "Reasoning",
+            "type": "string"
+          },
+          "why_not": {
+            "default": "",
+            "maxLength": 2000,
+            "title": "Why Not",
+            "type": "string"
+          },
+          "next_step": {
+            "default": "",
+            "maxLength": 2000,
+            "title": "Next Step",
+            "type": "string"
+          }
+        },
+        "required": [
+          "option",
+          "defensible",
+          "reasoning"
+        ],
+        "title": "ChoiceReview",
+        "type": "object"
+      },
+      "ItemReview": {
+        "additionalProperties": false,
+        "properties": {
+          "question_id": {
+            "maxLength": 40,
+            "minLength": 1,
+            "title": "Question Id",
+            "type": "string"
+          },
+          "basis": {
+            "maxLength": 2000,
+            "minLength": 4,
+            "title": "Basis",
+            "type": "string"
+          },
+          "ambiguity_check": {
+            "maxLength": 2000,
+            "minLength": 4,
+            "title": "Ambiguity Check",
+            "type": "string"
+          },
+          "choices": {
+            "items": {
+              "$ref": "#/$defs/ChoiceReview"
+            },
+            "maxItems": 6,
+            "title": "Choices",
+            "type": "array"
+          }
+        },
+        "required": [
+          "question_id",
+          "basis",
+          "ambiguity_check"
+        ],
+        "title": "ItemReview",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "expected_revision": {
+        "minimum": 1,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "questions": {
+        "items": {
+          "$ref": "#/$defs/ItemReview"
+        },
+        "maxItems": 80,
+        "minItems": 1,
+        "title": "Questions",
+        "type": "array"
+      },
+      "human_review_confirmed": {
+        "const": true,
+        "title": "Human Review Confirmed",
+        "type": "boolean"
+      },
+      "audio_listened": {
+        "default": false,
+        "title": "Audio Listened",
+        "type": "boolean"
+      },
+      "resolution_note": {
+        "default": "",
+        "maxLength": 2000,
+        "title": "Resolution Note",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "expected_revision",
+      "questions",
+      "human_review_confirmed"
+    ],
+    "title": "ReviewItems",
+    "type": "object"
+  },
+  "draft.finalize_review": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "expected_revision": {
+        "minimum": 1,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "human_review_confirmed": {
+        "const": true,
+        "title": "Human Review Confirmed",
+        "type": "boolean"
+      },
+      "audio_listened": {
+        "default": false,
+        "title": "Audio Listened",
+        "type": "boolean"
+      },
+      "resolution_note": {
+        "default": "",
+        "maxLength": 2000,
+        "title": "Resolution Note",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "expected_revision",
+      "human_review_confirmed"
+    ],
+    "title": "ReviewFinalize",
+    "type": "object"
+  },
+  "bank.export": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "expected_revision": {
+        "minimum": 1,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "personal_content_checked": {
+        "const": true,
+        "title": "Personal Content Checked",
+        "type": "boolean"
+      },
+      "reuse_source": {
+        "maxLength": 1000,
+        "minLength": 3,
+        "title": "Reuse Source",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "expected_revision",
+      "personal_content_checked",
+      "reuse_source"
+    ],
+    "title": "BankExport",
+    "type": "object"
+  },
+  "bank.list": {
+    "additionalProperties": false,
+    "properties": {},
+    "title": "Empty",
+    "type": "object"
+  },
+  "bank.retire": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "reason": {
+        "maxLength": 1000,
+        "minLength": 3,
+        "title": "Reason",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "reason"
+    ],
+    "title": "BankRetire",
+    "type": "object"
+  },
+  "prep.forecast": {
+    "additionalProperties": false,
+    "properties": {
+      "route_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Route Id",
+        "type": "string"
+      },
+      "scope_ids": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 100,
+        "minItems": 1,
+        "title": "Scope Ids",
+        "type": "array"
+      },
+      "skills": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "minItems": 1,
+        "title": "Skills",
+        "type": "array"
+      },
+      "count_per_skill": {
+        "default": 5,
+        "maximum": 80,
+        "minimum": 1,
+        "title": "Count Per Skill",
+        "type": "integer"
+      },
+      "due_date": {
+        "maxLength": 10,
+        "minLength": 10,
+        "title": "Due Date",
+        "type": "string"
+      }
+    },
+    "required": [
+      "route_id",
+      "scope_ids",
+      "skills",
+      "due_date"
+    ],
+    "title": "Forecast",
+    "type": "object"
+  },
+  "prep.list": {
+    "additionalProperties": false,
+    "properties": {
+      "route_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Route Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "route_id"
+    ],
+    "title": "Route",
+    "type": "object"
+  },
+  "prep.state": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "expected_revision": {
+        "minimum": 1,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "state": {
+        "enum": [
+          "planned",
+          "in_progress",
+          "done",
+          "paused"
+        ],
+        "title": "State",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "expected_revision",
+      "state"
+    ],
+    "title": "PrepState",
+    "type": "object"
+  },
+  "goal.save": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "anyOf": [
+          {
+            "maxLength": 100,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Id"
+      },
+      "expected_revision": {
+        "default": 0,
+        "minimum": 0,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "title": {
+        "maxLength": 160,
+        "minLength": 1,
+        "title": "Title",
+        "type": "string"
+      },
+      "outcomes": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "minItems": 1,
+        "title": "Outcomes",
+        "type": "array"
+      },
+      "threshold": {
+        "default": 0.8,
+        "exclusiveMinimum": 0,
+        "maximum": 1,
+        "title": "Threshold",
+        "type": "number"
+      }
+    },
+    "required": [
+      "title",
+      "outcomes"
+    ],
+    "title": "GoalSave",
+    "type": "object"
+  },
+  "goal.list": {
+    "additionalProperties": false,
+    "properties": {},
+    "title": "Empty",
+    "type": "object"
+  },
+  "goal.bind": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "expected_revision": {
+        "minimum": 1,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "goal_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Goal Id",
+        "type": "string"
+      },
+      "goal_revision": {
+        "minimum": 1,
+        "title": "Goal Revision",
+        "type": "integer"
+      },
+      "outcomes": {
+        "additionalProperties": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": "Outcomes",
+        "type": "object"
+      },
+      "coverage_note": {
+        "maxLength": 2000,
+        "minLength": 4,
+        "title": "Coverage Note",
+        "type": "string"
+      },
+      "human_review_confirmed": {
+        "const": true,
+        "title": "Human Review Confirmed",
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "id",
+      "expected_revision",
+      "goal_id",
+      "goal_revision",
+      "outcomes",
+      "coverage_note",
+      "human_review_confirmed"
+    ],
+    "title": "GoalBind",
+    "type": "object"
+  },
+  "goal.history": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "title": "Identity",
+    "type": "object"
+  },
+  "publication.withdraw": {
+    "additionalProperties": false,
+    "properties": {
+      "task_id": {
+        "maxLength": 128,
+        "minLength": 1,
+        "title": "Task Id",
+        "type": "string"
+      },
+      "replacement_task_id": {
+        "anyOf": [
+          {
+            "maxLength": 128,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Replacement Task Id"
+      },
+      "reason": {
+        "maxLength": 1000,
+        "minLength": 3,
+        "title": "Reason",
+        "type": "string"
+      },
+      "human_review_confirmed": {
+        "const": true,
+        "title": "Human Review Confirmed",
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "task_id",
+      "reason",
+      "human_review_confirmed"
+    ],
+    "title": "Withdraw",
+    "type": "object"
+  },
+  "report.read": {
+    "additionalProperties": false,
+    "properties": {
+      "route_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Route Id",
+        "type": "string"
+      },
+      "audience": {
+        "default": "teacher",
+        "enum": [
+          "teacher",
+          "learner",
+          "parent"
+        ],
+        "title": "Audience",
+        "type": "string"
+      }
+    },
+    "required": [
+      "route_id"
+    ],
+    "title": "Report",
+    "type": "object"
+  },
+  "report.weekly_plan": {
+    "additionalProperties": false,
+    "properties": {
+      "route_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Route Id",
+        "type": "string"
+      },
+      "start_date": {
+        "maxLength": 10,
+        "minLength": 10,
+        "title": "Start Date",
+        "type": "string"
+      },
+      "session_minutes": {
+        "default": 20,
+        "maximum": 120,
+        "minimum": 5,
+        "title": "Session Minutes",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "route_id",
+      "start_date"
+    ],
+    "title": "WeeklyPlan",
+    "type": "object"
+  },
+  "class.assign": {
+    "$defs": {
+      "MemberMap": {
+        "additionalProperties": false,
+        "properties": {
+          "peer_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Peer Id",
+            "type": "string"
+          },
+          "route_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Route Id",
+            "type": "string"
+          },
+          "scope_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 50,
+            "title": "Scope Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "peer_id",
+          "route_id"
+        ],
+        "title": "MemberMap",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "expected_revision": {
+        "minimum": 1,
+        "title": "Expected Revision",
+        "type": "integer"
+      },
+      "source_draft_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Source Draft Id",
+        "type": "string"
+      },
+      "source_revision": {
+        "minimum": 1,
+        "title": "Source Revision",
+        "type": "integer"
+      },
+      "mappings": {
+        "items": {
+          "$ref": "#/$defs/MemberMap"
+        },
+        "maxItems": 50,
+        "minItems": 1,
+        "title": "Mappings",
+        "type": "array"
+      },
+      "human_review_confirmed": {
+        "const": true,
+        "title": "Human Review Confirmed",
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "id",
+      "expected_revision",
+      "source_draft_id",
+      "source_revision",
+      "mappings",
+      "human_review_confirmed"
+    ],
+    "title": "ClassAssign",
+    "type": "object"
+  },
+  "class.report": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "title": "Identity",
+    "type": "object"
+  },
+  "class.evidence": {
+    "additionalProperties": false,
+    "properties": {
+      "route_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Route Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "route_id"
+    ],
+    "title": "Route",
+    "type": "object"
+  }
+}

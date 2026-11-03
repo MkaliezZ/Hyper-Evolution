@@ -1,0 +1,47 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "companion.capability.v10",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "request_id": {
+      "maxLength": 96,
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "operation": {
+      "maxLength": 60,
+      "minLength": 1,
+      "title": "Operation",
+      "type": "string"
+    },
+    "peer_id": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Peer Id"
+    },
+    "payload": {
+      "additionalProperties": true,
+      "title": "Payload",
+      "type": "object"
+    }
+  },
+  "required": [
+    "contract_version",
+    "request_id",
+    "operation"
+  ],
+  "title": "TeachingRequest",
+  "type": "object"
+}

@@ -1,0 +1,6 @@
+{
+  "mode": "text",
+  "answer": "现状：已完成初稿。待办：明天请同伴试用。验收：同伴能够独立接手。",
+  "expected_status": "pending",
+  "expected_comment_contains": "结构提示"
+}
