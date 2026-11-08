@@ -68,15 +68,18 @@ def test_self_scope_rejects_teacher_assignment_and_independent_means_do_not_chan
     assert s.task(task['id'])['origin']=='teacher'
     with pytest.raises(PermissionError):call(s,'self.context')
 
-def test_own_api_agent_reads_evidence_saves_suggestion_and_rejects_changed_mode(tmp_path):
+@pytest.mark.parametrize('quotes',[['A garden offers shade.'],['A garden','offers shade.']])
+def test_own_api_agent_reads_evidence_saves_suggestion_and_rejects_changed_mode(tmp_path,quotes):
     s=instance(tmp_path,'student','S');tid,sid=self_work(s)
     def model(messages,info):
         seen={getattr(p,'tool_name','') for m in messages for p in m.parts}
         if 'get_self_work' not in seen:return ModelResponse(parts=[ToolCallPart('get_self_work',{})])
         return ModelResponse(parts=[ToolCallPart(info.output_tools[0].name,{'outcome':'partial','comment':'有理由，可以再解释怎样帮助人。',
-            'next_step':'补充一个具体场景。','evidence_quotes':['A garden offers shade.'],'limitations':[]})])
+            'next_step':'补充一个具体场景。','evidence_quotes':quotes,'limitations':[]})])
     result=asyncio.run(run_agent(s,{'mode':'self_review','task_id':tid,'submission_id':sid},FunctionModel(model)))
     record=result['assessment']['record'];assert record['source_type']=='model_suggestion' and not result['teacher_review_created']
+    assert result['output']['evidence_quotes']==quotes
+    assert record['dimensions'][0]['evidence']==quotes[0]
     assert record['evidence']['answer_hash']==call(s,'self.feedback_context',{'task_id':tid,'submission_id':sid})['answer_hash']
     assert not s.task(tid)['attempts'][0]['review_history']
     def changed(messages,info):

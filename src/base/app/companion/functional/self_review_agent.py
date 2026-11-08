@@ -51,6 +51,7 @@ async def run_self_review(runtime,payload,model_override=None):
         'outcome':out['outcome'],'comment':out['comment']+(('\n本次观察范围：'+'；'.join(out['limitations']))[:900] if out['limitations'] else ''),
         'next_step':out['next_step'],
         'dimensions':[{'criterion':first['criteria'][0] if first['criteria'] else '对照本次作品与目标','observation':out['comment'][:1500],
-            'evidence':'；'.join(out['evidence_quotes'])[:1500],'status':'ungraded'}]}})['data']
+            # A dimension stores one verbatim excerpt; the complete quote list remains in the job output.
+            'evidence':next(iter(out['evidence_quotes']),'')[:1500],'status':'ungraded'}]}})['data']
     return {'mode':'self_review','output':out,'assessment':record,'tools_used':calls,
         'teacher_review_created':False,'policy':policy(),'model':runtime.config('model',{}).get('model','test-model')}

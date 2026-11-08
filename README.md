@@ -8,7 +8,9 @@ Hyper Evolution 是一套运行在个人电脑上的开源学习工作台。老�
 
 Local-first learning for teachers, students and self-learners — with a browser workspace, your own model API, and local MCP tools.
 
-**当前发布：v0.6.0-rc.2 工程测试版 · Windows 10/11 x64。** 欢迎带着真实使用问题来测试和共建。版本记录、安装包与校验文件见 [Releases](https://github.com/MkaliezZ/Hyper-Evolution/releases)。
+**当前发布：v0.6.0-rc.3 工程测试版 · Windows 10/11 x64。** 欢迎带着真实使用问题来测试和共建。版本记录、安装包与校验文件见 [Releases](https://github.com/MkaliezZ/Hyper-Evolution/releases)。
+
+本次更新修复了自学 AI 反馈含多条引用时无法保存的问题。完整引用清单继续保留，学习者可以接着修订作品、记录反思和安排复习。
 
 [官网与三版本下载](https://124.222.12.235/) · [教师安装教程](https://124.222.12.235/?role=teacher#how) · [学生安装教程](https://124.222.12.235/?role=student#how) · [自学安装教程](https://124.222.12.235/?role=self#how)
 
@@ -18,9 +20,9 @@ Local-first learning for teachers, students and self-learners — with a browser
 
 | 版本 | 适合谁 | 从哪里开始 | 下载 |
 | --- | --- | --- | --- |
-| **Enlighter · 教师版** | 教师、辅导者 | 连接学生 → 了解现状与目标 → 布置任务 → 查看作品与反馈 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.2/Hyper-Evolution-Enlighter-Windows-x64-v0.6.0-rc.2.zip) |
-| **Evolver · 学生版** | 跟随老师学习的学生 | 输入配对码 → 领取任务 → 完成并提交 → 根据反馈修订 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.2/Hyper-Evolution-Evolver-Windows-x64-v0.6.0-rc.2.zip) |
-| **Self-Evolver · 自学版** | 自主学习者 | 导入自己的资料 → 阅读与提问 → 练习 → 反馈与复习 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.2/Hyper-Evolution-Self-Evolver-Windows-x64-v0.6.0-rc.2.zip) |
+| **Enlighter · 教师版** | 教师、辅导者 | 连接学生 → 了解现状与目标 → 布置任务 → 查看作品与反馈 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.3/Hyper-Evolution-Enlighter-Windows-x64-v0.6.0-rc.3.zip) |
+| **Evolver · 学生版** | 跟随老师学习的学生 | 输入配对码 → 领取任务 → 完成并提交 → 根据反馈修订 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.3/Hyper-Evolution-Evolver-Windows-x64-v0.6.0-rc.3.zip) |
+| **Self-Evolver · 自学版** | 自主学习者 | 导入自己的资料 → 阅读与提问 → 练习 → 反馈与复习 | [Windows 工程测试包](https://github.com/MkaliezZ/Hyper-Evolution/releases/download/v0.6.0-rc.3/Hyper-Evolution-Self-Evolver-Windows-x64-v0.6.0-rc.3.zip) |
 
 ## 从这里开始
 
@@ -35,6 +37,8 @@ Local-first learning for teachers, students and self-learners — with a browser
 也可以先完成身份设置，浏览原创示例，再配置模型。连接测试会向所选服务商发送一次小请求，使用该账户的 API 额度。
 
 第一次使用可跟着这几份教程走：[安装与 API 配置](docs/getting-started.md) · [教师版](docs/enlighter.md) · [学生版](docs/evolver.md) · [自学版](docs/self-evolver.md)。工作台的“使用指南”里还有按按钮展开的操作说明。
+
+**从旧版更新：** 先在“连接与设置 → 模型与本机设置”点击“保存并退出服务”，再完整解压新版，运行对应启动文件。新版沿用同一用户数据目录，继续读取原有学习记录和师生配对。
 
 ## 一次学习是怎样连起来的
 

@@ -4,7 +4,7 @@
 
 Windows 工程包以 Python 3.11 x64 构建。源码环境建议也使用 Python 3.11，安装 `requirements-local.lock`。运行 `python -m growth_local --edition teacher|student|self`；三个 edition 分别有独立默认目录，`--data` 可指定测试目录。
 
-Linux/macOS 源码运行需要可用的系统密钥库，Linux 桌面通常使用 Secret Service。连接服务可以独立运行于 Linux。当前发布提供 Windows 二进制包。
+Linux/macOS 源码运行需要可用的系统密钥库，Linux 桌面通常使用 Secret Service。连接服务可以独立运行于 Linux。当前发布提供 Windows 源码与一键在线启动包。
 
 ## 三层与六对象
 
@@ -34,7 +34,7 @@ python scripts/verify_local_peer.py
 
 PowerShell 如未展开 Node 通配符，可运行 `Get-ChildItem tests/*.test.cjs | ForEach-Object { node --test $_.FullName }`。
 
-验证脚本使用合成资料与独立目录，回执写入被 Git 忽略的 `artifacts/` 或 `data/verify/`。`scripts/verify_release.py` 验证冻结程序的三个入口、网页/MCP共享、配对、提交与反馈。
+验证脚本使用合成资料与独立目录，回执写入被 Git 忽略的 `artifacts/` 或 `data/verify/`。`scripts/verify_release.py` 从三个 ZIP 的解压源码验证入口、网页/MCP共享、配对、提交、反馈和自学多条引用的保存。
 
 ## 三版本工程包
 

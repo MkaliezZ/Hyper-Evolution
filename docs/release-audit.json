@@ -1,17 +1,22 @@
 {
-  "release": "v0.6.0-rc.2",
+  "release": "v0.6.0-rc.3",
   "product": "超维伴学 Hyper Evolution",
-  "date": "2026-11-03",
-  "delivery": "three Windows x64 online source installer editions",
-  "editions": ["Enlighter", "Evolver", "Self-Evolver"],
-  "architecture": ["aesthetic", "functional", "assets"],
-  "sensitive_information": {
-    "scanner": "Gitleaks 8.30.1",
-    "scanner_download_checksum_verified": true,
-    "original_private_history_findings": 0,
-    "public_source_findings": 0,
-    "private_history_exported": false,
-    "excluded": ["learning databases", "API keys", "device secrets", "private teaching resources", "internal deployment records"]
+  "date": "2026-11-08",
+  "previous_release": "v0.6.0-rc.2",
+  "change": "Persist one exact excerpt in the assessment field while retaining all model evidence quotes in the job result.",
+  "architecture": [
+    "aesthetic",
+    "functional",
+    "assets"
+  ],
+  "public_contracts_changed": false,
+  "user_data_migration": false,
+  "private_history_exported": false,
+  "source_verification": {
+    "python_tests_passed": 207,
+    "frontend_tests_passed": 35,
+    "base_business_check": true,
+    "synthetic_data_only": true
   },
   "licensing": {
     "application": "MIT",
@@ -21,22 +26,9 @@
     "third_party_runtime_binaries_in_zip": false,
     "third_party_exam_materials_in_zip": false
   },
-  "verification": {
-    "python_tests_passed": 206,
-    "frontend_tests_passed": 35,
-    "base_business_check": true,
-    "fresh_runtime": true,
-    "three_extracted_packages": true,
-    "web_stdio_and_http_mcp": true,
-    "real_webrtc_loopback": true,
-    "assignment_submission_feedback_revision": true,
-    "student_privilege_escalation_rejected": true,
-    "actual_windows_cmd_installer": true,
-    "bootstrap_verified_official_archive": true,
-    "paths_with_spaces": true,
-    "repeat_open_preserves_service": true,
-    "synthetic_data_only": true,
-    "real_model_provider_in_this_release_test": false,
-    "cross_network_in_this_release_test": false
+  "package_verification": {
+    "script": "scripts/verify_release.py",
+    "windows_installer_script": "scripts/verify_launcher.py",
+    "published_receipts": "See this tag in GitHub Releases for completed package acceptance and SHA256 values."
   }
 }

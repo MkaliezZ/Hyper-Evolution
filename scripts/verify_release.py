@@ -10,6 +10,48 @@ from package_public import TAG
 
 ROOT=Path(__file__).resolve().parents[1]
 
+SELF_FEEDBACK_REGRESSION=r'''
+import asyncio,json,sys
+from pathlib import Path
+from uuid import uuid4
+from pydantic_ai.models.function import FunctionModel
+from pydantic_ai.messages import ModelResponse,ToolCallPart
+from base.app.local_runtime import LocalRuntime
+from base.app.local_agent import run_agent
+import base.app.companion.functional.self_review_agent as implementation
+assert Path(implementation.__file__).resolve().is_relative_to(Path(sys.argv[1]).resolve())
+class MemoryVault:
+    def __init__(self):self.values={}
+    def get(self,key):return self.values.get(key)
+    def set(self,key,value):self.values[key]=value
+    def delete(self,key):self.values.pop(key,None)
+runtime=LocalRuntime(sys.argv[2],MemoryVault());runtime.setup('student','Synthetic package self-feedback')
+def cap(op,payload=None,version='v11'):
+    return runtime.invoke_capability({'contract_version':'companion.capability.'+version,
+        'operation':op,'request_id':uuid4().hex,'payload':payload or {}})['data']
+cap('experience.select',{'experience':'self'})
+material=cap('material.save',{'title':'Original package regression','text':'A garden offers shade. Students study there.',
+    'source':'Original synthetic engineering fixture'},'v2')['material']
+task=cap('self.start',{'source':{'material_id':material['id'],'revision':material['revision'],'source_hash':material['source_hash']},
+    'goal':'Explain a concrete reason','method':'apply'})['task_id']
+runtime.submit(task,{},'A garden offers shade.',[],'first')
+submission=runtime.task(task)['attempts'][0]['id'];quotes=['A garden','offers shade.']
+def model(messages,info):
+    seen={getattr(part,'tool_name','') for message in messages for part in message.parts}
+    if 'get_self_work' not in seen:return ModelResponse(parts=[ToolCallPart('get_self_work',{})])
+    return ModelResponse(parts=[ToolCallPart(info.output_tools[0].name,{'outcome':'partial',
+        'comment':'The reason is clear; add a concrete example.','next_step':'Explain how shade helps a student.',
+        'evidence_quotes':quotes,'limitations':[]})])
+result=asyncio.run(run_agent(runtime,{'mode':'self_review','task_id':task,'submission_id':submission},FunctionModel(model)))
+assert result['output']['evidence_quotes']==quotes
+record=result['assessment']['record'];assert record['dimensions'][0]['evidence']==quotes[0]
+assert record['source_type']=='model_suggestion' and not result['teacher_review_created']
+assert len(cap('assessment.list',{'task_id':task},'v2')['entries'])==1
+assert not runtime.task(task)['attempts'][0]['review_history']
+print(json.dumps({'ok':True,'multiple_exact_quotes':True,'all_quotes_retained':True,'single_excerpt_saved':True,
+    'teacher_review_created':False,'actual_provider_called':False}))
+'''
+
 
 async def until(predicate,seconds=50):
     deadline=time.monotonic()+seconds
@@ -53,6 +95,7 @@ async def main():
             launch=(folder/'qa-launch-url.txt').read_text();base=launch.split('/#')[0]
             client=httpx.AsyncClient(base_url=base,trust_env=False,timeout=40);clients[edition]=client
             response=await client.post('/api/local/session',json={'bootstrap':launch.split('#start=')[1]});response.raise_for_status()
+            assert (await client.get('/api/local/ready')).json()['version']==TAG.lstrip('v')+'-engineering'
             status=(await client.get('/api/local/status')).json();assert status['launch_edition']==edition and not status['profile'].get('role')
             (await client.post('/api/local/setup',json={'role':edition,'name':'Original release '+brand,'exam':'toefl',
              'academic_subject':'english','academic_track':'study_abroad' if edition!='self' else 'materials'})).raise_for_status()
@@ -75,6 +118,12 @@ async def main():
                     assert data['device_id']==status['device_id']
                     assert ('assign_activity' in tools)==(edition=='teacher')
             checks.append(brand+': manifest hashes, independent CLI/identity, web assets and real stdio MCP')
+            if edition=='self':
+                proof=subprocess.run([sys.executable,'-',str(source),str(work/'self-feedback-regression')],input=SELF_FEEDBACK_REGRESSION,
+                    cwd=source,env=env,text=True,encoding='utf8',capture_output=True,timeout=90)
+                assert proof.returncode==0,proof.stderr
+                assert json.loads(proof.stdout)['ok']
+                checks.append('Extracted Self-Evolver source: multiple exact quotes saved, full quote list retained, no teacher review written')
         teacher,student=clients['teacher'],clients['student']
         invitation=(await teacher.post('/api/local/pair/invite')).json()
         (await student.post('/api/local/pair/join',json={'code':invitation['code']})).raise_for_status()

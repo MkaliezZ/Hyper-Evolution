@@ -20,7 +20,7 @@ test('each edition has a distinct downloadable package and matching startup tuto
   assert.equal(roles[role].launch,'启动-'+roles[role].brand+'.cmd');
   for(const key of Object.keys(roles[role]).filter(x=>!['manual','brand'].includes(x)))assert.ok(html.includes('id="role-'+key+'"'),key);
  }
- assert.equal(names.size,3);assert.equal(tag,'v0.6.0-rc.2');
+ assert.equal(names.size,3);assert.equal(tag,'v0.6.0-rc.3');
  assert.match(roles.teacher.pair,/生成学生配对码/);
  assert.match(roles.student.pair,/输入老师配对码/);
  assert.match(roles.self.pair,/自学可以直接/);

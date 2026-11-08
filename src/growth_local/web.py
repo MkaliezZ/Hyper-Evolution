@@ -109,7 +109,7 @@ def create_app(data, runtime=None, network=True):
 
     @app.get('/api/local/ready')
     def ready():
-        return {'ok': True, 'version': '0.6.0-rc.2-engineering'}
+        return {'ok': True, 'version': '0.6.0-rc.3-engineering'}
 
     @app.post('/api/local/session')
     async def session(req: Request):

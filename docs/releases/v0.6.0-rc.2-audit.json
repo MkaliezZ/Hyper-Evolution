@@ -1,0 +1,42 @@
+{
+  "release": "v0.6.0-rc.2",
+  "product": "超维伴学 Hyper Evolution",
+  "date": "2026-11-03",
+  "delivery": "three Windows x64 online source installer editions",
+  "editions": ["Enlighter", "Evolver", "Self-Evolver"],
+  "architecture": ["aesthetic", "functional", "assets"],
+  "sensitive_information": {
+    "scanner": "Gitleaks 8.30.1",
+    "scanner_download_checksum_verified": true,
+    "original_private_history_findings": 0,
+    "public_source_findings": 0,
+    "private_history_exported": false,
+    "excluded": ["learning databases", "API keys", "device secrets", "private teaching resources", "internal deployment records"]
+  },
+  "licensing": {
+    "application": "MIT",
+    "banxue_base": "MIT notice retained",
+    "deeptutor_adaptation": "Apache-2.0 and attribution retained",
+    "locked_runtime_dependencies": 71,
+    "third_party_runtime_binaries_in_zip": false,
+    "third_party_exam_materials_in_zip": false
+  },
+  "verification": {
+    "python_tests_passed": 206,
+    "frontend_tests_passed": 35,
+    "base_business_check": true,
+    "fresh_runtime": true,
+    "three_extracted_packages": true,
+    "web_stdio_and_http_mcp": true,
+    "real_webrtc_loopback": true,
+    "assignment_submission_feedback_revision": true,
+    "student_privilege_escalation_rejected": true,
+    "actual_windows_cmd_installer": true,
+    "bootstrap_verified_official_archive": true,
+    "paths_with_spaces": true,
+    "repeat_open_preserves_service": true,
+    "synthetic_data_only": true,
+    "real_model_provider_in_this_release_test": false,
+    "cross_network_in_this_release_test": false
+  }
+}

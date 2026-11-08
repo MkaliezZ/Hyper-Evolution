@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-const tag='v0.6.0-rc.2';
+const tag='v0.6.0-rc.3';
 const roles={
  teacher:{
   title:'Enlighter 教师版：连接学生，带着完成一次学习。',
